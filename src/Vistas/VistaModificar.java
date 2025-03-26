@@ -15,12 +15,18 @@ public class VistaModificar extends JFrame {
     private JButton cancelarButton;
     private JPanel JPanelCalendario;
     private JPanel JPanelHora;
+    private JPanel PanelModificar;
 
     public VistaModificar() {
+
+
 
         setTitle("Ventana Modificar");
         setSize(600, 400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //frame.setContentPane(new VentanaM(frame).getPanel()
+       // );
+
 
         setLayout(new GridLayout(3, 2));
 
@@ -28,7 +34,7 @@ public class VistaModificar extends JFrame {
 
         add(comboBoxDificultad);
 
-        //calendario
+        //calendari
 
         add(comboBoxEstado);
 
@@ -43,6 +49,10 @@ public class VistaModificar extends JFrame {
         add(aplicarButton);
 
 
+    }
+
+    public JPanel getPanel(){
+        return PanelModificar;
     }
 
     public JTextField getTitulo(){
@@ -60,5 +70,8 @@ public class VistaModificar extends JFrame {
     public void addAplicarListener(ActionListener listener){
         aplicarButton.addActionListener(listener);
     }
-}
+
+
+    }
+
 

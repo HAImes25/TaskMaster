@@ -1,5 +1,13 @@
+import Controladores.ControladorModificar;
+import Vistas.VistaModificar;
+import Modelos.Tarea;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+
+
+        VistaModificar vista = new VistaModificar();
+       // ControladorModificar controlador = new ControladorModificar(vista, );
+        vista.setVisible(true);
     }
 }
