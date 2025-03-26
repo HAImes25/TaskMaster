@@ -1,7 +1,10 @@
 package Vistas;
 
+import Modelos.ModeloTarea;
+
 import javax.swing.*;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class VistaAdministradorDeTareas extends JFrame{
 
@@ -24,6 +27,13 @@ public class VistaAdministradorDeTareas extends JFrame{
         setLocationRelativeTo(null);
         setContentPane(panelAdministradorDeTareas);
 
+    }
+
+    // Metodos
+    public void rellenarEspacioPorEmpezar(ArrayList<ModeloTarea> tareaArrayList){
+        for (ModeloTarea tarea : tareaArrayList){
+            System.out.println("Estoy dentro del panel ");
+        }
     }
 
     // Listeners

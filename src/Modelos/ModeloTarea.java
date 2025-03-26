@@ -18,15 +18,15 @@ public class ModeloTarea {
 
     // Get - Set
     public String getNombre() {
-        return nombre;
+        return nombre.trim();
     }
 
     public String getDificultad() {
-        return dificultad;
+        return dificultad.trim();
     }
 
     public String getEstado() {
-        return estado;
+        return estado.trim();
     }
 
     public LocalDateTime getFecha() {
