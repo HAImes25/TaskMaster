@@ -1,5 +1,12 @@
+
+import Vista.VistaCrearTarea;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+
+        VistaCrearTarea vistaCrearTarea = new VistaCrearTarea();
+        vistaCrearTarea.setVisible(true);
+
+
     }
 }

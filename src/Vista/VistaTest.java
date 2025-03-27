@@ -1,4 +1,4 @@
-package Vistas;
+package Vista;
 
 public class VistaTest {
 }
