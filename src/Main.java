@@ -9,5 +9,6 @@ public class Main {
         VistaModificar vista = new VistaModificar();
        // ControladorModificar controlador = new ControladorModificar(vista, );
         vista.setVisible(true);
+        Tarea t1 = new Tarea("HJFJ", "Jjshjsdjasjdjasjajsj");
     }
 }

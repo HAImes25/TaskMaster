@@ -21,7 +21,7 @@
           <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Titulo"/>
+          <text value="Titulo:"/>
         </properties>
       </component>
       <component id="89fd9" class="javax.swing.JComboBox" binding="comboBoxDificultad">
@@ -35,7 +35,7 @@
           <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Dificultad"/>
+          <text value="Dificultad:"/>
         </properties>
       </component>
       <grid id="dd03e" binding="JPanelCalendario" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
@@ -52,7 +52,7 @@
           <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Calendario"/>
+          <text value="Calendario:"/>
         </properties>
       </component>
       <component id="9d2e7" class="javax.swing.JComboBox" binding="comboBoxEstado">
@@ -72,7 +72,7 @@
           <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Estado"/>
+          <text value="Estado:"/>
         </properties>
       </component>
       <component id="b6f11" class="javax.swing.JLabel">
@@ -80,7 +80,7 @@
           <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Frecuencia"/>
+          <text value="Frecuencia:"/>
         </properties>
       </component>
       <grid id="14a76" binding="JPanelHora" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
@@ -97,7 +97,7 @@
           <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Hora revision"/>
+          <text value="Hora revision:"/>
         </properties>
       </component>
       <component id="de9a3" class="javax.swing.JTextField" binding="textFieldDescripcion">
@@ -113,7 +113,7 @@
           <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Descripcion"/>
+          <text value="Descripcion:"/>
         </properties>
       </component>
       <component id="ba49f" class="javax.swing.JButton" binding="aplicarButton" default-binding="true">

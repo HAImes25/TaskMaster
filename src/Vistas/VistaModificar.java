@@ -1,9 +1,13 @@
 package Vistas;
 
+import Modelos.Tarea;
+
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionListener;
+
+
+
 
 public class VistaModificar extends JFrame {
     private JTextField textTitulo;
@@ -16,12 +20,23 @@ public class VistaModificar extends JFrame {
     private JPanel JPanelCalendario;
     private JPanel JPanelHora;
     private JPanel PanelModificar;
+    private javax.swing.JFrame frame;
 
     public VistaModificar() {
 
 
 
-        setTitle("Ventana Modificar");
+        frame = new javax.swing.JFrame("Vista Modificar");
+        frame.setDefaultCloseOperation(javax.swing.JFrame.EXIT_ON_CLOSE);
+        frame.getContentPane().add(PanelModificar);
+        frame.pack();
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+
+        //Per a que quan s'obri la finestra ja posi la informació a la part que toca
+        //textTitulo.getText(t1.getNombre());
+
+        /*setTitle("Ventana Modificar");
         setSize(600, 400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         //frame.setContentPane(new VentanaM(frame).getPanel()
@@ -31,22 +46,29 @@ public class VistaModificar extends JFrame {
         setLayout(new GridLayout(3, 2));
 
         add(textTitulo);
+        textTitulo.setVisible(true);
 
         add(comboBoxDificultad);
+        comboBoxDificultad.setVisible(true);
 
         //calendari
 
         add(comboBoxEstado);
+        comboBoxEstado.setVisible(true);
 
         add(comboBoxFrecuencia);
+        comboBoxFrecuencia.setVisible(true);
 
         //hora
 
         add(textFieldDescripcion);
+        textFieldDescripcion.setVisible(true);
 
         add(cancelarButton);
+        cancelarButton.setVisible(true);
 
         add(aplicarButton);
+        aplicarButton.setVisible(true);*/
 
 
     }
@@ -55,7 +77,7 @@ public class VistaModificar extends JFrame {
         return PanelModificar;
     }
 
-    public JTextField getTitulo(){
+    public JTextField getTitul(){
         return textTitulo;
     }
 
@@ -72,6 +94,7 @@ public class VistaModificar extends JFrame {
     }
 
 
-    }
+
+}
 
 
