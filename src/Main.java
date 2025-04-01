@@ -1,6 +1,6 @@
 import Controladores.ControladorModificar;
+import Modelos.TareaAina;
 import Vistas.VistaModificar;
-import Modelos.Tarea;
 
 public class Main {
     public static void main(String[] args) {
@@ -9,6 +9,6 @@ public class Main {
         VistaModificar vista = new VistaModificar();
        // ControladorModificar controlador = new ControladorModificar(vista, );
         vista.setVisible(true);
-        Tarea t1 = new Tarea("HJFJ", "Jjshjsdjasjdjasjajsj");
+        TareaAina t1 = new TareaAina("HJFJ", "Jjshjsdjasjdjasjajsj", "JDHJ", "JSJS", "SHD");
     }
 }

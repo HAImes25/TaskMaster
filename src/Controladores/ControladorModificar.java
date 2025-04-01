@@ -1,6 +1,6 @@
 package Controladores;
 
-import Modelos.Tarea;
+import Modelos.TareaAina;
 import Vistas.VistaModificar;
 
 import javax.swing.*;
@@ -10,11 +10,11 @@ import java.util.ArrayList;
 
 public class ControladorModificar extends JFrame {
 
-    private ArrayList<Tarea> listaTareas;
+    private ArrayList<TareaAina> listaTareas;
     private VistaModificar vista;
-    private Tarea modelo;
+    private TareaAina modelo;
 
-    public ControladorModificar(VistaModificar vista, Tarea modelo){
+    public ControladorModificar(VistaModificar vista, TareaAina modelo){
         this.vista = vista;
         this.modelo = modelo;
         this.listaTareas = new ArrayList<>();

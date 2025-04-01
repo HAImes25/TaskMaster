@@ -1,7 +1,7 @@
 package Vistas;
 
-import Modelos.Tarea;
 
+import Modelos.TareaAina;
 
 import javax.swing.*;
 import java.awt.event.ActionListener;
@@ -33,45 +33,37 @@ public class VistaModificar extends JFrame {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 
+
+
+        String[] oDificultad = { "Fácil", "Medio", "Dificil"};
+        for (String o : oDificultad){
+            comboBoxDificultad.addItem(o);
+        }
+
+        String[] oEstado = { "Por empezar", "En proceso", "Completada", "Vencida"};
+        for (String o : oEstado){
+            comboBoxEstado.addItem(o);
+        }
+
+        String[] oFrecuencia = { "Única", "Diaria", "Semanal", "Mensual"};
+        for (String o : oFrecuencia){
+            comboBoxFrecuencia.addItem(o);
+        }
+
+
+
         //Per a que quan s'obri la finestra ja posi la informació a la part que toca
-        //textTitulo.getText(t1.getNombre());
-
-        /*setTitle("Ventana Modificar");
-        setSize(600, 400);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //frame.setContentPane(new VentanaM(frame).getPanel()
-       // );
+       //textTitulo.getText(t1.getNombre());
 
 
-        setLayout(new GridLayout(3, 2));
 
-        add(textTitulo);
-        textTitulo.setVisible(true);
 
-        add(comboBoxDificultad);
-        comboBoxDificultad.setVisible(true);
 
-        //calendari
-
-        add(comboBoxEstado);
-        comboBoxEstado.setVisible(true);
-
-        add(comboBoxFrecuencia);
-        comboBoxFrecuencia.setVisible(true);
-
-        //hora
-
-        add(textFieldDescripcion);
-        textFieldDescripcion.setVisible(true);
-
-        add(cancelarButton);
-        cancelarButton.setVisible(true);
-
-        add(aplicarButton);
-        aplicarButton.setVisible(true);*/
 
 
     }
+
+
 
     public JPanel getPanel(){
         return PanelModificar;
