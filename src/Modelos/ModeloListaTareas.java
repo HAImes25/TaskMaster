@@ -1,23 +1,22 @@
 package Modelos;
 
-import javax.swing.*;
 import java.util.ArrayList;
 
 public class ModeloListaTareas {
 
     // Atributos
-    ArrayList<ModeloTarea> listaTareas = new ArrayList<ModeloTarea>();
+    ArrayList<ModeloTareaHector> listaTareas = new ArrayList<ModeloTareaHector>();
 
 
     // Constructor
-    public ModeloListaTareas(ArrayList<ModeloTarea> listaTareas){
+    public ModeloListaTareas(ArrayList<ModeloTareaHector> listaTareas){
         this.listaTareas = listaTareas;
     }
 
     // Metodos
-    public ArrayList<ModeloTarea> getListaTareasPorEmpezar(ModeloListaTareas listaTareas){
-        ArrayList<ModeloTarea> listaTareasPorEmpezar = new ArrayList<ModeloTarea>();
-        for (ModeloTarea tarea : listaTareas.listaTareas){
+    public ArrayList<ModeloTareaHector> getListaTareasPorEmpezar(ModeloListaTareas listaTareas){
+        ArrayList<ModeloTareaHector> listaTareasPorEmpezar = new ArrayList<ModeloTareaHector>();
+        for (ModeloTareaHector tarea : listaTareas.listaTareas){
             if (tarea.getEstado() == "Por Empezar"){
                 listaTareasPorEmpezar.add(tarea);
             }
@@ -25,9 +24,9 @@ public class ModeloListaTareas {
         return listaTareasPorEmpezar;
     }
 
-    public ArrayList<ModeloTarea> getListaTareasEnProceso(ModeloListaTareas listaTareas){
-        ArrayList<ModeloTarea> listaTareasEnProceso = new ArrayList<ModeloTarea>();
-        for (ModeloTarea tarea : listaTareas.listaTareas){
+    public ArrayList<ModeloTareaHector> getListaTareasEnProceso(ModeloListaTareas listaTareas){
+        ArrayList<ModeloTareaHector> listaTareasEnProceso = new ArrayList<ModeloTareaHector>();
+        for (ModeloTareaHector tarea : listaTareas.listaTareas){
             if (tarea.getEstado() == "En Proceso"){
                 listaTareasEnProceso.add(tarea);
             }
@@ -35,9 +34,9 @@ public class ModeloListaTareas {
         return listaTareasEnProceso;
     }
 
-    public ArrayList<ModeloTarea> getListaTareasCompletada(ModeloListaTareas listaTareas){
-        ArrayList<ModeloTarea> listaTareasCompletada = new ArrayList<ModeloTarea>();
-        for (ModeloTarea tarea : listaTareas.listaTareas){
+    public ArrayList<ModeloTareaHector> getListaTareasCompletada(ModeloListaTareas listaTareas){
+        ArrayList<ModeloTareaHector> listaTareasCompletada = new ArrayList<ModeloTareaHector>();
+        for (ModeloTareaHector tarea : listaTareas.listaTareas){
             if (tarea.getEstado() == "Completada"){
                 listaTareasCompletada.add(tarea);
             }
@@ -45,9 +44,9 @@ public class ModeloListaTareas {
         return listaTareasCompletada;
     }
 
-    public ArrayList<ModeloTarea> getListaTareasVencida(ModeloListaTareas listaTareas){
-        ArrayList<ModeloTarea> listaTareasVencida = new ArrayList<ModeloTarea>();
-        for (ModeloTarea tarea : listaTareas.listaTareas){
+    public ArrayList<ModeloTareaHector> getListaTareasVencida(ModeloListaTareas listaTareas){
+        ArrayList<ModeloTareaHector> listaTareasVencida = new ArrayList<ModeloTareaHector>();
+        for (ModeloTareaHector tarea : listaTareas.listaTareas){
             if (tarea.getEstado() == "Vencida"){
                 listaTareasVencida.add(tarea);
             }
@@ -56,7 +55,7 @@ public class ModeloListaTareas {
     }
 
 
-    public void agregarTarea(ModeloTarea tarea, ModeloListaTareas listaTareas){
+    public void agregarTarea(ModeloTareaHector tarea, ModeloListaTareas listaTareas){
         listaTareas.listaTareas.add(tarea);
     }
 

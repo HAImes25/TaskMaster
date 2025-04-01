@@ -1,7 +1,6 @@
 package Controladores;
 import Vistas.VistaAdministradorDeTareas;
 import Modelos.ModeloListaTareas;
-import Modelos.ModeloTarea;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -20,15 +19,21 @@ public class ControladorAdministradorDeTareas {
         vistaAdministradorDeTareas.buttonCrearTareaAddActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                //Aqui iria la conexion a la ventana de crear Tarea
             }
         });
 
     // Rellenar espacios de tareas
-        vistaAdministradorDeTareas.rellenarEspacioPorEmpezar(listaTareas.getListaTareasPorEmpezar(listaTareas));
+        vistaAdministradorDeTareas.rellenarEspacioPorEmpezar(listaTareas.getListaTareasPorEmpezar(listaTareas), new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Aqui iria la conexion con modificar Tarea
+            }
+        });
         vistaAdministradorDeTareas.rellenarEspacioEnProceso(listaTareas.getListaTareasEnProceso(listaTareas));
         vistaAdministradorDeTareas.rellenarEspacioCompletada(listaTareas.getListaTareasCompletada(listaTareas));
         vistaAdministradorDeTareas.rellenarEspacioPorVencida(listaTareas.getListaTareasVencida(listaTareas));
+
 
 
 
