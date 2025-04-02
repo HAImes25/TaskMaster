@@ -14,7 +14,7 @@ public class ControladorModificar extends JFrame {
     private VistaModificar vista;
     private TareaAina modelo;
 
-    public ControladorModificar(VistaModificar vista, TareaAina modelo){
+    public ControladorModificar(VistaModificar vista){
         this.vista = vista;
         this.modelo = modelo;
         this.listaTareas = new ArrayList<>();
@@ -37,8 +37,11 @@ public class ControladorModificar extends JFrame {
     this.vista.addAplicarListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            //modelo.setTitulo(vista.getTitulo());
+            //modelo.setTitulo(vista.getTitul());
             //modelo.setDescripcion(vista.getDescripcio());
+
+
+
 
             // Aquí pots mostrar algun missatge confirmant l'actualització
             System.out.println("Tasca actualitzada");

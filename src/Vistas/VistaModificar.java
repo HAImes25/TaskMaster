@@ -1,12 +1,8 @@
 package Vistas;
 
-
 import Modelos.TareaAina;
-
 import javax.swing.*;
 import java.awt.event.ActionListener;
-
-
 
 
 public class VistaModificar extends JFrame {
@@ -22,9 +18,9 @@ public class VistaModificar extends JFrame {
     private JPanel PanelModificar;
     private javax.swing.JFrame frame;
 
+
+
     public VistaModificar() {
-
-
 
         frame = new javax.swing.JFrame("Vista Modificar");
         frame.setDefaultCloseOperation(javax.swing.JFrame.EXIT_ON_CLOSE);
@@ -34,16 +30,28 @@ public class VistaModificar extends JFrame {
         frame.setVisible(true);
 
 
+        TareaAina ta1 = new TareaAina("Ejercicios MVC", "hsh", "ajsj", "jasj", "Hacer los ejercicos MVC.");
+
+
+        //Per a que quan s'obri la finestra ja posi la informació a la part que toca
+        textTitulo.setText(ta1.getTitulo());
+
 
         String[] oDificultad = { "Fácil", "Medio", "Dificil"};
         for (String o : oDificultad){
             comboBoxDificultad.addItem(o);
         }
 
+
+        //Espacio para el calendario
+
+
         String[] oEstado = { "Por empezar", "En proceso", "Completada", "Vencida"};
         for (String o : oEstado){
             comboBoxEstado.addItem(o);
         }
+
+
 
         String[] oFrecuencia = { "Única", "Diaria", "Semanal", "Mensual"};
         for (String o : oFrecuencia){
@@ -51,9 +59,18 @@ public class VistaModificar extends JFrame {
         }
 
 
+        //Espacio para poner la hora revision tarea
+
 
         //Per a que quan s'obri la finestra ja posi la informació a la part que toca
-       //textTitulo.getText(t1.getNombre());
+        textFieldDescripcion.setText(ta1.getDescripcion());
+
+
+
+
+
+
+
 
 
 

@@ -1,5 +1,8 @@
 package Modelos;
 
+import Vistas.VistaModificar;
+import Controladores.ControladorModificar;
+
 public class TareaAina {
 
         private String titulo;

@@ -7,8 +7,7 @@ public class Main {
 
 
         VistaModificar vista = new VistaModificar();
-       // ControladorModificar controlador = new ControladorModificar(vista, );
         vista.setVisible(true);
-        TareaAina t1 = new TareaAina("HJFJ", "Jjshjsdjasjdjasjajsj", "JDHJ", "JSJS", "SHD");
+        ControladorModificar controlador = new ControladorModificar(vista );
     }
 }
