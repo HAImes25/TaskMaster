@@ -1,12 +1,16 @@
 package Modelos;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 
 public class ModeloTareaHector {
     String nombre = "";
     String dificultad = "";
     String estado = "";
     LocalDateTime fecha = LocalDateTime.now();
+
+    private static final DateTimeFormatter formatoFecha = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
 
     public ModeloTareaHector(String nombre, String dificultad, String estado){
         this.nombre = nombre;
@@ -29,8 +33,8 @@ public class ModeloTareaHector {
         return estado.trim();
     }
 
-    public LocalDateTime getFecha() {
-        return fecha;
+    public String getFecha() {
+        return fecha.format(formatoFecha);
     }
 
     public void setNombre(String nombre) {
