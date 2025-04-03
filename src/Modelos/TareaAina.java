@@ -63,7 +63,7 @@ public class TareaAina {
 
         @Override
         public String toString() {
-            return "Tarea [titulo=" + titulo + ", dificultad=" + dificultad + ", estado=" + estado + ", frecuencia=" + frecuencia + ", descripcion=" + descripcion + "]";
+            return "Tarea [Titulo = " + titulo + ", Dificultad = " + dificultad + ", Estado = " + estado + ", Frecuencia = " + frecuencia + ", Descripcion = " + descripcion + ".]";
         }
     }
 

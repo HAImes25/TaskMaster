@@ -14,45 +14,45 @@ public class ControladorModificar extends JFrame {
     private VistaModificar vista;
     private TareaAina modelo;
 
-    public ControladorModificar(VistaModificar vista){
+    public ControladorModificar(VistaModificar vista) {
         this.vista = vista;
         this.modelo = modelo;
         this.listaTareas = new ArrayList<>();
 
 
 
-    this.vista.addCancelarListener(new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            vista.setVisible(false);
+        this.vista.addCancelarListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                vista.setVisible(false);
+
+                JOptionPane.showMessageDialog(null, "Modificación cancelada.");
+
             //VentanaPrincipal.setVisible(true);
-            //((JFrame)SwingUtilities.getWindowAncestor(panelModificar)).dispose();
-        //});
-
-
-
-
-            // Tornar a Finestra principal
-        }
-    });
-
-    this.vista.addAplicarListener(new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            //modelo.setTitulo(vista.getTitul());
-            //modelo.setDescripcion(vista.getDescripcio());
-
-
-
-
-
-            // Aquí pots mostrar algun missatge confirmant l'actualització
-            System.out.println("Tasca actualitzada");
-
-
-            //Aqui he de posar que s'apliquin esls canvis a la tarea
+                //((JFrame)SwingUtilities.getWindowAncestor(panelModificar)).dispose();
+                //});
+                // Tornar a Finestra principal
 
             }
+        });
+
+        this.vista.addAplicarListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //modelo.setTitulo(vista.getTitul());
+                //modelo.setDescripcion(vista.getDescripcio());
+
+
+
+
+
+                // Aquí pots mostrar algun missatge confirmant l'actualització
+                System.out.println("Tasca actualitzada");
+
+
+                //Aqui he de posar que s'apliquin esls canvis a la tarea
+
+                }
         });
 
 

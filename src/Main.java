@@ -7,7 +7,7 @@ public class Main {
 
 
         VistaModificar vista = new VistaModificar();
-        vista.setVisible(true);
         ControladorModificar controlador = new ControladorModificar(vista );
+        
     }
 }

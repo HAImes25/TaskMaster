@@ -43,6 +43,7 @@ public class VistaModificar extends JFrame {
         }
 
 
+
         //Espacio para el calendario
 
 
