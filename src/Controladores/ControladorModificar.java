@@ -30,6 +30,8 @@ public class ControladorModificar extends JFrame {
         //});
 
 
+
+
             // Tornar a Finestra principal
         }
     });
@@ -39,6 +41,7 @@ public class ControladorModificar extends JFrame {
         public void actionPerformed(ActionEvent e) {
             //modelo.setTitulo(vista.getTitul());
             //modelo.setDescripcion(vista.getDescripcio());
+
 
 
 
