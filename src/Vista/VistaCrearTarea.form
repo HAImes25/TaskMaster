@@ -16,11 +16,6 @@
           <text value="Crear Tarea"/>
         </properties>
       </component>
-      <hspacer id="1501b">
-        <constraints>
-          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-      </hspacer>
       <component id="e2a53" class="javax.swing.JLabel" binding="dificultadLabel">
         <constraints>
           <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
@@ -77,7 +72,7 @@
         </constraints>
         <properties/>
       </component>
-      <component id="553fd" class="javax.swing.JComboBox" binding="comboBox1" default-binding="true">
+      <component id="553fd" class="javax.swing.JComboBox" binding="dificultad">
         <constraints>
           <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -92,13 +87,13 @@
         <border type="none"/>
         <children/>
       </grid>
-      <component id="ac3cf" class="javax.swing.JComboBox" binding="comboBox2" default-binding="true">
+      <component id="ac3cf" class="javax.swing.JComboBox" binding="estado">
         <constraints>
           <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties/>
       </component>
-      <component id="29eda" class="javax.swing.JComboBox" binding="comboBox3" default-binding="true">
+      <component id="29eda" class="javax.swing.JComboBox" binding="frecuencia">
         <constraints>
           <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -128,9 +123,9 @@
           <text value="Crear"/>
         </properties>
       </component>
-      <component id="f97d4" class="javax.swing.JLabel" binding="tituloLabel">
+      <component id="d36d8" class="javax.swing.JLabel">
         <constraints>
-          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="1" use-parent-layout="false"/>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value="Titulo"/>

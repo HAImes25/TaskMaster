@@ -1,19 +1,15 @@
 package Vista;
 
-import org.jdatepicker.impl.*;
 import javax.swing.*;
-import java.awt.*;
-import java.util.Calendar;
-import java.util.Properties;
+import java.awt.event.ActionListener;
 
 public class VistaCrearTarea extends JFrame{
     private JTextField titulo;
-    private JComboBox comboBox1;
-    private JComboBox comboBox2;
-    private JComboBox comboBox3;
+    private JComboBox dificultad;
+    private JComboBox estado;
+    private JComboBox frecuencia;
     private JTextField horaRevision;
     private JTextField descrpcion;
-    private JLabel tituloLabel;
     private JLabel dificultadLabel;
     private JLabel calendarioLabel;
     private JLabel estadoLabel;
@@ -23,16 +19,37 @@ public class VistaCrearTarea extends JFrame{
     private JPanel Calendario;
     private JButton crearButton;
     private JPanel Frame;
-    frame = new javax.swing.JFrame("Vista Modificar");frame.setDefaultCloseOperation(javax.swing.JFrame.EXIT_ON_CLOSE);frame.getContentPane().add(PanelModificar);frame.pack();frame.setLocationRelativeTo(null);frame.setVisible(true);
+    private javax.swing.JFrame frame;
+
     public VistaCrearTarea(){
-        setTitle("Date Picker");
-        setSize(300, 200);
+        JFrame frame = new javax.swing.JFrame("Vista Modificar");
+        setSize(600,400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.getContentPane().add(Frame);
         setLocationRelativeTo(null);
         setContentPane(Frame);
-        setLayout(new GridLayout(18,2));
+        frame.setVisible(true);
 
+        dificultad.addItem(" ");
+        dificultad.addItem("Facil");
+        dificultad.addItem("Intermedio");
+        dificultad.addItem("Dificil");
 
+        estado.addItem(" ");
+        estado.addItem("Por empezar");
+        estado.addItem("En proceso");
+        estado.addItem("Completada");
+        estado.addItem("Vencida");
+
+        frecuencia.addItem(" ");
+        frecuencia.addItem("Unica");
+        frecuencia.addItem("Diaria");
+        frecuencia.addItem("Semanal");
+        frecuencia.addItem("mensual");
+    }
+
+    public void crearButtonListener(ActionListener listener) {
+        crearButtonListener(listener);
     }
 
 
