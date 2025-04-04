@@ -1,3 +1,4 @@
+
 import Vistas.*;
 import Modelos.*;
 import Controladores.*;
@@ -8,14 +9,12 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
 
+
         VistaAdministradorDeTareas vistaAdministradorDeTareas = new VistaAdministradorDeTareas();
         vistaAdministradorDeTareas.setVisible(true);
         ModeloListaTareas modeloListaTareas = new ModeloListaTareas(new ArrayList<ModeloTareaHector>());
         tareasTest(modeloListaTareas);
         ControladorAdministradorDeTareas controladorAdministradorDeTareas = new ControladorAdministradorDeTareas(vistaAdministradorDeTareas, modeloListaTareas);
-
-
-
 
     }
     // Metodo Para crear Tareas para test
