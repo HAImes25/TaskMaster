@@ -1,5 +1,8 @@
 package Vista;
 
+import Controladores.*;
+import Modelos.*;
+
 import javax.swing.*;
 import java.awt.event.ActionListener;
 
