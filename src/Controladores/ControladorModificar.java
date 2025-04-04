@@ -1,7 +1,7 @@
 package Controladores;
 
 import Modelos.TareaAina;
-import Vistas.VistaModificar;
+import Vistas.*;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -14,8 +14,8 @@ public class ControladorModificar extends JFrame {
     private VistaModificar vista;
     private TareaAina modelo;
 
-    public ControladorModificar(VistaModificar vista) {
-        this.vista = vista;
+    public ControladorModificar(VistaModificar vistaM) {
+        this.vista = vistaM;
         this.modelo = modelo;
         this.listaTareas = new ArrayList<>();
 
