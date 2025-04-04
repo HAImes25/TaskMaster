@@ -1,5 +1,6 @@
 package Vistas;
 
+import Modelos.ModeloTareaHector;
 import Modelos.TareaAina;
 import javax.swing.*;
 import java.awt.event.ActionListener;
@@ -20,7 +21,7 @@ public class VistaModificar extends JFrame {
 
 
 
-    public VistaModificar() {
+    public VistaModificar(ModeloTareaHector tarea) {
 
         frame = new javax.swing.JFrame("Vista Modificar");
         frame.setDefaultCloseOperation(javax.swing.JFrame.EXIT_ON_CLOSE);
@@ -30,11 +31,11 @@ public class VistaModificar extends JFrame {
         frame.setVisible(true);
 
 
-        TareaAina ta1 = new TareaAina("Ejercicios MVC", "hsh", "ajsj", "jasj", "Hacer los ejercicos MVC.");
+       // TareaAina ta1 = new TareaAina("Ejercicios MVC", "hsh", "ajsj", "jasj", "Hacer los ejercicos MVC.");
 
 
         //Per a que quan s'obri la finestra ja posi la informació a la part que toca
-        textTitulo.setText(ta1.getTitulo());
+        textTitulo.setText(tarea.getNombre());
 
 
         String[] oDificultad = { "Fácil", "Medio", "Dificil"};
@@ -64,15 +65,7 @@ public class VistaModificar extends JFrame {
 
 
         //Per a que quan s'obri la finestra ja posi la informació a la part que toca
-        textFieldDescripcion.setText(ta1.getDescripcion());
-
-
-
-
-
-
-
-
+        textFieldDescripcion.setText(tarea.getDescripcion());
 
 
 
@@ -80,6 +73,8 @@ public class VistaModificar extends JFrame {
 
 
     }
+
+
 
 
 

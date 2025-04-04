@@ -39,6 +39,7 @@ public class ControladorModificar extends JFrame {
         this.vista.addAplicarListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 //modelo.setTitulo(vista.getTitul());
                 //modelo.setDescripcion(vista.getDescripcio());
 
@@ -51,6 +52,8 @@ public class ControladorModificar extends JFrame {
 
 
                 //Aqui he de posar que s'apliquin esls canvis a la tarea
+
+                //eliminar este controlador pk sino se crea uno cada vez que le damos a modificar
 
                 }
         });

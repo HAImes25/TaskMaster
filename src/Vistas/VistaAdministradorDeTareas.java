@@ -1,9 +1,11 @@
 package Vistas;
 
+import Controladores.ControladorModificar;
 import Modelos.ModeloTareaHector;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
@@ -57,9 +59,15 @@ public class VistaAdministradorDeTareas extends JFrame{
             JLabel labelFecha = new JLabel(tarea.getFecha().toString());
             panelTarea.add(labelFecha);
 
-            JButton boton = new JButton("Modificar");
-            boton.addActionListener(listener);
-            panelTarea.add(boton);
+            JButton botonModificar = new JButton("Modificar");
+            botonModificar.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    VistaModificar vistaModificar = new VistaModificar(tarea);
+                    ControladorModificar controladorModificar = new ControladorModificar(vistaModificar);
+                }
+            });
+            panelTarea.add(botonModificar);
 
             contenedorTareas.add(panelTarea);
         }

@@ -9,6 +9,7 @@ public class ModeloTareaHector {
     String dificultad = "";
     String estado = "";
     LocalDateTime fecha = LocalDateTime.now();
+    String descripcion = "";
 
     private static final DateTimeFormatter formatoFecha = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
 
@@ -37,6 +38,10 @@ public class ModeloTareaHector {
         return fecha.format(formatoFecha);
     }
 
+    public String getDescripcion() {
+        return descripcion;
+    }
+
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -53,5 +58,7 @@ public class ModeloTareaHector {
         this.fecha = fecha;
     }
 
-
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
 }
