@@ -35,7 +35,7 @@ public class VistaModificar extends JFrame {
 
 
         //Per a que quan s'obri la finestra ja posi la informació a la part que toca
-        textTitulo.setText(tarea.getNombre());
+        textTitulo.setText(tarea.getTitulo());
 
 
         String[] oDificultad = { "Fácil", "Medio", "Dificil"};

@@ -5,25 +5,27 @@ import java.time.format.DateTimeFormatter;
 
 
 public class ModeloTareaHector {
-    String nombre = "";
+    String titulo = "";
     String dificultad = "";
     String estado = "";
-    LocalDateTime fecha = LocalDateTime.now();
+    private String frecuencia;
+    LocalDateTime fechaFinal = LocalDateTime.now();
+    LocalDateTime fechaInicial = LocalDateTime.now();
     String descripcion = "";
 
     private static final DateTimeFormatter formatoFecha = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
 
     public ModeloTareaHector(String nombre, String dificultad, String estado){
-        this.nombre = nombre;
+        this.titulo = nombre;
         this.dificultad = dificultad;
         this.estado = estado;
-        this.fecha = LocalDateTime.now();
+        this.fechaFinal = LocalDateTime.now();
     }
 
 
     // Get - Set
-    public String getNombre() {
-        return nombre.trim();
+    public String getTitulo() {
+        return titulo.trim();
     }
 
     public String getDificultad() {
@@ -34,16 +36,25 @@ public class ModeloTareaHector {
         return estado.trim();
     }
 
-    public String getFecha() {
-        return fecha.format(formatoFecha);
+    public String getFechaFinal() {
+        return fechaFinal.format(formatoFecha);
     }
+
+    public String getFechaInici() {
+        return fechaInicial.format(formatoFecha);
+    }
+
 
     public String getDescripcion() {
         return descripcion;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public String getFrecuencia() {
+        return frecuencia;
+    }
+
+    public void setTitulo(String nombre) {
+        this.titulo = nombre;
     }
 
     public void setDificultad(String dificultad) {
@@ -55,10 +66,22 @@ public class ModeloTareaHector {
     }
 
     public void setFecha(LocalDateTime fecha) {
-        this.fecha = fecha;
+        this.fechaFinal = fecha;
     }
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
+
+    public void setFrecuencia(String frecuencia) {
+        this.frecuencia = frecuencia;
+    }
+
+    public String imprimemeLaTarea() {
+        return "Tarea [Titulo = " + titulo + ", Dificultad = " + dificultad + ", Estado = " + estado + ", Frecuencia = " + frecuencia + ", Descripcion = " + descripcion + ".]";
+    }
+
+
+
+
 }

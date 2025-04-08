@@ -50,13 +50,13 @@ public class VistaAdministradorDeTareas extends JFrame{
             JPanel panelTarea = new JPanel();
             panelTarea.setLayout(new GridLayout(2, 2));
 
-            JLabel labelnombre = new JLabel(tarea.getNombre());
+            JLabel labelnombre = new JLabel(tarea.getTitulo());
             panelTarea.add(labelnombre);
 
             JLabel labelDificultad = new JLabel(tarea.getDificultad());
             panelTarea.add(labelDificultad);
 
-            JLabel labelFecha = new JLabel(tarea.getFecha().toString());
+            JLabel labelFecha = new JLabel(tarea.getFechaFinal().toString());
             panelTarea.add(labelFecha);
 
             JButton botonModificar = new JButton("Modificar");
@@ -64,7 +64,8 @@ public class VistaAdministradorDeTareas extends JFrame{
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     VistaModificar vistaModificar = new VistaModificar(tarea);
-                    ControladorModificar controladorModificar = new ControladorModificar(vistaModificar);
+                    ControladorModificar controladorModificar = new ControladorModificar(vistaModificar, new ModeloTareaHector(tarea.getTitulo(), tarea.getDificultad(), tarea.getEstado()));
+                    //Eliminar ventana AdminTareas
                 }
             });
             panelTarea.add(botonModificar);
@@ -94,13 +95,13 @@ public class VistaAdministradorDeTareas extends JFrame{
             JPanel panelTarea = new JPanel();
             panelTarea.setLayout(new GridLayout(2, 2));
 
-            JLabel labelnombre = new JLabel(tarea.getNombre());
+            JLabel labelnombre = new JLabel(tarea.getTitulo());
             panelTarea.add(labelnombre);
 
             JLabel labelDificultad = new JLabel(tarea.getDificultad());
             panelTarea.add(labelDificultad);
 
-            JLabel labelFecha = new JLabel(tarea.getFecha().toString());
+            JLabel labelFecha = new JLabel(tarea.getFechaFinal().toString());
             panelTarea.add(labelFecha);
 
             JButton boton = new JButton("Modificar");
@@ -130,13 +131,13 @@ public class VistaAdministradorDeTareas extends JFrame{
             JPanel panelTarea = new JPanel();
             panelTarea.setLayout(new GridLayout(2, 2));
 
-            JLabel labelnombre = new JLabel(tarea.getNombre());
+            JLabel labelnombre = new JLabel(tarea.getTitulo());
             panelTarea.add(labelnombre);
 
             JLabel labelDificultad = new JLabel(tarea.getDificultad());
             panelTarea.add(labelDificultad);
 
-            JLabel labelFecha = new JLabel(tarea.getFecha().toString());
+            JLabel labelFecha = new JLabel(tarea.getFechaInici().toString());
             panelTarea.add(labelFecha);
 
             JButton boton = new JButton("Modificar");
@@ -166,13 +167,13 @@ public class VistaAdministradorDeTareas extends JFrame{
             JPanel panelTarea = new JPanel();
             panelTarea.setLayout(new GridLayout(2, 2));
 
-            JLabel labelnombre = new JLabel(tarea.getNombre());
+            JLabel labelnombre = new JLabel(tarea.getTitulo());
             panelTarea.add(labelnombre);
 
             JLabel labelDificultad = new JLabel(tarea.getDificultad());
             panelTarea.add(labelDificultad);
 
-            JLabel labelFecha = new JLabel(tarea.getFecha().toString());
+            JLabel labelFecha = new JLabel(tarea.getFechaInici().toString());
             panelTarea.add(labelFecha);
 
             JButton boton = new JButton("Modificar");

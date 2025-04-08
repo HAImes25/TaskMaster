@@ -1,5 +1,6 @@
 package Controladores;
 
+import Modelos.ModeloTareaHector;
 import Modelos.TareaAina;
 import Vistas.*;
 
@@ -12,11 +13,11 @@ public class ControladorModificar extends JFrame {
 
     private ArrayList<TareaAina> listaTareas;
     private VistaModificar vista;
-    private TareaAina modelo;
+    private ModeloTareaHector modelo;
 
-    public ControladorModificar(VistaModificar vistaM) {
+    public ControladorModificar(VistaModificar vistaM, ModeloTareaHector modeloTareaHector) {
         this.vista = vistaM;
-        this.modelo = modelo;
+        this.modelo = modeloTareaHector;
         this.listaTareas = new ArrayList<>();
 
 
@@ -24,9 +25,11 @@ public class ControladorModificar extends JFrame {
         this.vista.addCancelarListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                vista.setVisible(false);
+                System.out.println("Cancelando....");
+                //JOptionPane.showMessageDialog(null, "Modificación cancelada.");
+                //Cerrar/eliminar VentanaModificar
+                //Crear ventana AdminTareas Actualizada
 
-                JOptionPane.showMessageDialog(null, "Modificación cancelada.");
 
             //VentanaPrincipal.setVisible(true);
                 //((JFrame)SwingUtilities.getWindowAncestor(panelModificar)).dispose();

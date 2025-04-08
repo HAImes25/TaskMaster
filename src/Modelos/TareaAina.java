@@ -61,8 +61,7 @@ public class TareaAina {
             this.descripcion = descripcion;
         }
 
-        @Override
-        public String toString() {
+        public String imprimemeLaTarea() {
             return "Tarea [Titulo = " + titulo + ", Dificultad = " + dificultad + ", Estado = " + estado + ", Frecuencia = " + frecuencia + ", Descripcion = " + descripcion + ".]";
         }
     }
