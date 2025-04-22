@@ -24,12 +24,7 @@ public class ControladorAdministradorDeTareas {
         });
 
     // Rellenar espacios de tareas
-        vistaAdministradorDeTareas.rellenarEspacioPorEmpezar(listaTareas.getListaTareasPorEmpezar(listaTareas), new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                // Aqui iria la conexion con modificar Tarea
-            }
-        });
+        vistaAdministradorDeTareas.rellenarEspacioPorEmpezar(listaTareas.getListaTareasPorEmpezar(listaTareas));
         vistaAdministradorDeTareas.rellenarEspacioEnProceso(listaTareas.getListaTareasEnProceso(listaTareas));
         vistaAdministradorDeTareas.rellenarEspacioCompletada(listaTareas.getListaTareasCompletada(listaTareas));
         vistaAdministradorDeTareas.rellenarEspacioPorVencida(listaTareas.getListaTareasVencida(listaTareas));
@@ -37,7 +32,7 @@ public class ControladorAdministradorDeTareas {
 
 
 
-
-
     }
+
+
 }

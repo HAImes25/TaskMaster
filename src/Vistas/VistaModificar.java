@@ -68,26 +68,30 @@ public class VistaModificar extends JFrame {
         textFieldDescripcion.setText(tarea.getDescripcion());
 
 
-
-
-
-
     }
-
-
-
-
 
     public JPanel getPanel(){
         return PanelModificar;
     }
 
-    public JTextField getTitul(){
-        return textTitulo;
+    public String getTitul(){
+        return textTitulo.getText().trim();
     }
 
-    public JTextField getDescripcion(){
-        return textFieldDescripcion;
+    public String getDescripcion(){
+        return textFieldDescripcion.getText().trim();
+    }
+
+    public String getComboBoxDificultad() {
+        return comboBoxDificultad.getSelectedItem().toString();
+    }
+
+    public String getComboBoxEstado() {
+        return comboBoxEstado.getSelectedItem().toString();
+    }
+
+    public String getComboBoxFrecuencia() {
+        return comboBoxFrecuencia.getSelectedItem().toString();
     }
 
     public void addCancelarListener(ActionListener listener) {

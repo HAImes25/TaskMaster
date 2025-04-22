@@ -1,6 +1,7 @@
 package Vistas;
 
 import Controladores.ControladorModificar;
+import Modelos.ModeloListaTareas;
 import Modelos.ModeloTareaHector;
 
 import javax.swing.*;
@@ -37,7 +38,7 @@ public class VistaAdministradorDeTareas extends JFrame{
     }
 
     // Metodos
-    public void rellenarEspacioPorEmpezar(ArrayList<ModeloTareaHector> tareaArrayList, ActionListener listener) {
+    public void rellenarEspacioPorEmpezar(ArrayList<ModeloTareaHector> tareaArrayList) {
 
         // Crear un JPanel de contenedor de las tareas
         JPanel contenedorTareas = new JPanel();
@@ -64,7 +65,7 @@ public class VistaAdministradorDeTareas extends JFrame{
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     VistaModificar vistaModificar = new VistaModificar(tarea);
-                    ControladorModificar controladorModificar = new ControladorModificar(vistaModificar, new ModeloTareaHector(tarea.getTitulo(), tarea.getDificultad(), tarea.getEstado()));
+                    ControladorModificar controladorModificar = new ControladorModificar(vistaModificar,tarea, VistaAdministradorDeTareas.this, new ModeloListaTareas(tareaArrayList));
                     //Eliminar ventana AdminTareas
                 }
             });
@@ -105,6 +106,14 @@ public class VistaAdministradorDeTareas extends JFrame{
             panelTarea.add(labelFecha);
 
             JButton boton = new JButton("Modificar");
+            boton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    VistaModificar vistaModificar = new VistaModificar(tarea);
+                    ControladorModificar controladorModificar = new ControladorModificar(vistaModificar,tarea, VistaAdministradorDeTareas.this, new ModeloListaTareas(tareaArrayList));
+                    //Eliminar ventana AdminTareas
+                }
+            });
             panelTarea.add(boton);
 
             contenedorTareas.add(panelTarea);
@@ -189,6 +198,9 @@ public class VistaAdministradorDeTareas extends JFrame{
         revalidate();
         repaint();
     }
+
+
+
 
     // Listeners
     public void buttonCrearTareaAddActionListener(ActionListener listener){
