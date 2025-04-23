@@ -66,11 +66,16 @@ public class ControladorModificar extends JFrame {
                 System.out.println(vista.getComboBoxFrecuencia());
                 System.out.println(modelo.getDescripcion());
 
+                vistaAdministradorDeTareas.dispose();
 
-                vistaAdministradorDeTareas.rellenarEspacioPorEmpezar(listaTareas.getListaTareasPorEmpezar(listaTareas));
-                vistaAdministradorDeTareas.rellenarEspacioEnProceso(listaTareas.getListaTareasEnProceso(listaTareas));
-                vistaAdministradorDeTareas.rellenarEspacioCompletada(listaTareas.getListaTareasCompletada(listaTareas));
-                vistaAdministradorDeTareas.rellenarEspacioPorVencida(listaTareas.getListaTareasVencida(listaTareas));
+                VistaAdministradorDeTareas vistaAdministradorDeTareas1 = new VistaAdministradorDeTareas();
+                vistaAdministradorDeTareas1.setVisible(true);
+
+//
+//                vistaAdministradorDeTareas.rellenarEspacioPorEmpezar(listaTareas.getListaTareasPorEmpezar(listaTareas));
+//                vistaAdministradorDeTareas.rellenarEspacioEnProceso(listaTareas.getListaTareasEnProceso(listaTareas));
+//                vistaAdministradorDeTareas.rellenarEspacioCompletada(listaTareas.getListaTareasCompletada(listaTareas));
+//                vistaAdministradorDeTareas.rellenarEspacioPorVencida(listaTareas.getListaTareasVencida(listaTareas));
 
 
 
