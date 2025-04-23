@@ -24,8 +24,10 @@ public class VistaAdministradorDeTareas extends JFrame{
     private JButton sinButton;
     private JButton funcionButton;
 
+    private ArrayList<ModeloTareaHector> listaTareas;
+
     // Constructor
-    public VistaAdministradorDeTareas(){
+    public VistaAdministradorDeTareas(ArrayList<ModeloTareaHector> listaTareas){
 
         //Crear Ventana
         setTitle("Administrador de Tareas");
@@ -35,10 +37,12 @@ public class VistaAdministradorDeTareas extends JFrame{
         setLocationRelativeTo(null);
         setContentPane(panelAdministradorDeTareas);
 
+        this.listaTareas = listaTareas;
+
     }
 
     // Metodos
-    public void rellenarEspacioPorEmpezar(ArrayList<ModeloTareaHector> tareaArrayList) {
+    public void rellenarEspacioPorEmpezar() {
 
         // Crear un JPanel de contenedor de las tareas
         JPanel contenedorTareas = new JPanel();
@@ -47,7 +51,7 @@ public class VistaAdministradorDeTareas extends JFrame{
         // Limpiar el contenedor antes de agregar nuevos elementos
         contenedorTareas.removeAll();
 
-        for (ModeloTareaHector tarea : tareaArrayList) {
+        for (ModeloTareaHector tarea : listaTareas) {
             JPanel panelTarea = new JPanel();
             panelTarea.setLayout(new GridLayout(2, 2));
 
@@ -65,7 +69,7 @@ public class VistaAdministradorDeTareas extends JFrame{
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     VistaModificar vistaModificar = new VistaModificar(tarea);
-                    ControladorModificar controladorModificar = new ControladorModificar(vistaModificar,tarea, VistaAdministradorDeTareas.this, new ModeloListaTareas(tareaArrayList));
+                    ControladorModificar controladorModificar = new ControladorModificar(vistaModificar,tarea, VistaAdministradorDeTareas.this, listaTareas);
                     //Eliminar ventana AdminTareas
                 }
             });
@@ -110,7 +114,7 @@ public class VistaAdministradorDeTareas extends JFrame{
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     VistaModificar vistaModificar = new VistaModificar(tarea);
-                    ControladorModificar controladorModificar = new ControladorModificar(vistaModificar,tarea, VistaAdministradorDeTareas.this, new ModeloListaTareas(tareaArrayList));
+                    //ControladorModificar controladorModificar = new ControladorModificar(vistaModificar,tarea, VistaAdministradorDeTareas.this, new ModeloListaTareas(tareaArrayList));
                     //Eliminar ventana AdminTareas
                 }
             });
@@ -125,7 +129,7 @@ public class VistaAdministradorDeTareas extends JFrame{
         // Actualizar la vista
         revalidate();
         repaint();
-    }
+    } // Controlador Modificar Comentado
 
     public void rellenarEspacioCompletada(ArrayList<ModeloTareaHector> tareaArrayList){
         // Crear un JPanel de contenedor de las tareas

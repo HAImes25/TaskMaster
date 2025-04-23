@@ -1,9 +1,11 @@
 package Controladores;
+import Modelos.ModeloTareaHector;
 import Vistas.VistaAdministradorDeTareas;
 import Modelos.ModeloListaTareas;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class ControladorAdministradorDeTareas {
 
@@ -12,7 +14,7 @@ public class ControladorAdministradorDeTareas {
     private ModeloListaTareas listaTareas;
 
     // Constructor
-    public ControladorAdministradorDeTareas(VistaAdministradorDeTareas vistaAdministradorDeTareas, ModeloListaTareas listaTareas) {
+    public ControladorAdministradorDeTareas(VistaAdministradorDeTareas vistaAdministradorDeTareas,  ArrayList<ModeloTareaHector> listTareas) {
         this.vistaAdministradorDeTareas = vistaAdministradorDeTareas;
         this.listaTareas = listaTareas;
 
@@ -24,10 +26,10 @@ public class ControladorAdministradorDeTareas {
         });
 
     // Rellenar espacios de tareas
-        vistaAdministradorDeTareas.rellenarEspacioPorEmpezar(listaTareas.getListaTareasPorEmpezar(listaTareas));
-        vistaAdministradorDeTareas.rellenarEspacioEnProceso(listaTareas.getListaTareasEnProceso(listaTareas));
-        vistaAdministradorDeTareas.rellenarEspacioCompletada(listaTareas.getListaTareasCompletada(listaTareas));
-        vistaAdministradorDeTareas.rellenarEspacioPorVencida(listaTareas.getListaTareasVencida(listaTareas));
+        vistaAdministradorDeTareas.rellenarEspacioPorEmpezar();
+//        vistaAdministradorDeTareas.rellenarEspacioEnProceso();
+//        vistaAdministradorDeTareas.rellenarEspacioCompletada();
+//        vistaAdministradorDeTareas.rellenarEspacioPorVencida();
 
 
 

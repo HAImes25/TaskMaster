@@ -12,13 +12,13 @@ import java.util.ArrayList;
 
 public class ControladorModificar extends JFrame {
 
-    private ModeloListaTareas listaTareas;
+    private ArrayList<ModeloTareaHector> listaTareas;
     private VistaModificar vista;
     private ModeloTareaHector modelo;
     private VistaAdministradorDeTareas vistaAdministradorDeTareas;
 
 
-    public ControladorModificar(VistaModificar vistaM, ModeloTareaHector modeloTareaHector, VistaAdministradorDeTareas vistaAdministradorDeTareas, ModeloListaTareas listaTareas) {
+    public ControladorModificar(VistaModificar vistaM, ModeloTareaHector modeloTareaHector, VistaAdministradorDeTareas vistaAdministradorDeTareas, ArrayList<ModeloTareaHector> listaTareas) {
         this.vista = vistaM;
         this.modelo = modeloTareaHector;
         this.vistaAdministradorDeTareas = vistaAdministradorDeTareas;
@@ -60,6 +60,8 @@ public class ControladorModificar extends JFrame {
                 // Aquí pots mostrar algun missatge confirmant l'actualització
                 System.out.println("Tasca actualitzada");
 
+                //System.out.println("Tarea lista 1 " + listaTareas.getListaTareasPorEmpezar(listaTareas).get(1).getTitulo());
+
                 System.out.println(modelo.getTitulo());
                 System.out.println(vista.getComboBoxDificultad());
                 System.out.println(vista.getComboBoxEstado());
@@ -68,14 +70,16 @@ public class ControladorModificar extends JFrame {
 
                 vistaAdministradorDeTareas.dispose();
 
-                VistaAdministradorDeTareas vistaAdministradorDeTareas1 = new VistaAdministradorDeTareas();
+                VistaAdministradorDeTareas vistaAdministradorDeTareas1 = new VistaAdministradorDeTareas(listaTareas);
                 vistaAdministradorDeTareas1.setVisible(true);
 
-//
-//                vistaAdministradorDeTareas.rellenarEspacioPorEmpezar(listaTareas.getListaTareasPorEmpezar(listaTareas));
-//                vistaAdministradorDeTareas.rellenarEspacioEnProceso(listaTareas.getListaTareasEnProceso(listaTareas));
-//                vistaAdministradorDeTareas.rellenarEspacioCompletada(listaTareas.getListaTareasCompletada(listaTareas));
-//                vistaAdministradorDeTareas.rellenarEspacioPorVencida(listaTareas.getListaTareasVencida(listaTareas));
+
+
+
+                vistaAdministradorDeTareas1.rellenarEspacioPorEmpezar();
+//                vistaAdministradorDeTareas1.rellenarEspacioEnProceso(listaTareas.getListaTareasEnProceso(listaTareas));
+//                vistaAdministradorDeTareas1.rellenarEspacioCompletada(listaTareas.getListaTareasCompletada(listaTareas));
+//                vistaAdministradorDeTareas1.rellenarEspacioPorVencida(listaTareas.getListaTareasVencida(listaTareas));
 
 
 
