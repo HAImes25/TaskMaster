@@ -86,7 +86,7 @@ public class VistaAdministradorDeTareas extends JFrame{
         repaint();
     }
 
-    public void rellenarEspacioEnProceso(ArrayList<ModeloTareaHector> tareaArrayList){
+    public void rellenarEspacioEnProceso(){
 
         // Crear un JPanel de contenedor de las tareas
         JPanel contenedorTareas = new JPanel();
@@ -95,32 +95,34 @@ public class VistaAdministradorDeTareas extends JFrame{
         // Limpiar el contenedor antes de agregar nuevos elementos
         contenedorTareas.removeAll();
 
-        for (ModeloTareaHector tarea : tareaArrayList) {
+        for (ModeloTareaHector tarea : listaTareas) {
+            String status = tarea.getEstado();
+            if (status == "En Proceso") {
+                JPanel panelTarea = new JPanel();
+                panelTarea.setLayout(new GridLayout(2, 2));
 
-            JPanel panelTarea = new JPanel();
-            panelTarea.setLayout(new GridLayout(2, 2));
+                JLabel labelnombre = new JLabel(tarea.getTitulo());
+                panelTarea.add(labelnombre);
 
-            JLabel labelnombre = new JLabel(tarea.getTitulo());
-            panelTarea.add(labelnombre);
+                JLabel labelDificultad = new JLabel(tarea.getDificultad());
+                panelTarea.add(labelDificultad);
 
-            JLabel labelDificultad = new JLabel(tarea.getDificultad());
-            panelTarea.add(labelDificultad);
+                JLabel labelFecha = new JLabel(tarea.getFechaFinal().toString());
+                panelTarea.add(labelFecha);
 
-            JLabel labelFecha = new JLabel(tarea.getFechaFinal().toString());
-            panelTarea.add(labelFecha);
+                JButton boton = new JButton("Modificar");
+                boton.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        VistaModificar vistaModificar = new VistaModificar(tarea);
+                        ControladorModificar controladorModificar = new ControladorModificar(vistaModificar, tarea, VistaAdministradorDeTareas.this, listaTareas);
+                        //Eliminar ventana AdminTareas
+                    }
+                });
+                panelTarea.add(boton);
 
-            JButton boton = new JButton("Modificar");
-            boton.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    VistaModificar vistaModificar = new VistaModificar(tarea);
-                    //ControladorModificar controladorModificar = new ControladorModificar(vistaModificar,tarea, VistaAdministradorDeTareas.this, new ModeloListaTareas(tareaArrayList));
-                    //Eliminar ventana AdminTareas
-                }
-            });
-            panelTarea.add(boton);
-
-            contenedorTareas.add(panelTarea);
+                contenedorTareas.add(panelTarea);
+            }
         }
 
         // Agregar el contenedor al JScrollPane
@@ -131,7 +133,7 @@ public class VistaAdministradorDeTareas extends JFrame{
         repaint();
     } // Controlador Modificar Comentado
 
-    public void rellenarEspacioCompletada(ArrayList<ModeloTareaHector> tareaArrayList){
+    public void rellenarEspacioCompletada(){
         // Crear un JPanel de contenedor de las tareas
         JPanel contenedorTareas = new JPanel();
         contenedorTareas.setLayout(new GridLayout(0, 1));
@@ -139,7 +141,7 @@ public class VistaAdministradorDeTareas extends JFrame{
         // Limpiar el contenedor antes de agregar nuevos elementos
         contenedorTareas.removeAll();
 
-        for (ModeloTareaHector tarea : tareaArrayList) {
+        for (ModeloTareaHector tarea : listaTareas) {
 
             JPanel panelTarea = new JPanel();
             panelTarea.setLayout(new GridLayout(2, 2));
@@ -167,7 +169,7 @@ public class VistaAdministradorDeTareas extends JFrame{
         repaint();
     }
 
-    public void rellenarEspacioPorVencida(ArrayList<ModeloTareaHector> tareaArrayList){
+    public void rellenarEspacioPorVencida(){
         // Crear un JPanel de contenedor de las tareas
         JPanel contenedorTareas = new JPanel();
         contenedorTareas.setLayout(new GridLayout(0, 1));
@@ -175,7 +177,7 @@ public class VistaAdministradorDeTareas extends JFrame{
         // Limpiar el contenedor antes de agregar nuevos elementos
         contenedorTareas.removeAll();
 
-        for (ModeloTareaHector tarea : tareaArrayList) {
+        for (ModeloTareaHector tarea : listaTareas) {
 
             JPanel panelTarea = new JPanel();
             panelTarea.setLayout(new GridLayout(2, 2));
