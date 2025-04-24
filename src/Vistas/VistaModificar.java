@@ -55,6 +55,7 @@ public class VistaModificar extends JFrame {
 
 
 
+
         String[] oFrecuencia = { "Única", "Diaria", "Semanal", "Mensual"};
         for (String o : oFrecuencia){
             comboBoxFrecuencia.addItem(o);
@@ -66,6 +67,8 @@ public class VistaModificar extends JFrame {
 
         //Per a que quan s'obri la finestra ja posi la informació a la part que toca
         textFieldDescripcion.setText(tarea.getDescripcion());
+
+
 
 
     }
@@ -90,6 +93,10 @@ public class VistaModificar extends JFrame {
         return comboBoxEstado.getSelectedItem().toString();
     }
 
+    public JComboBox getComboBoxEstadoCombo() {
+        return this.comboBoxEstado;
+    }
+
     public String getComboBoxFrecuencia() {
         return comboBoxFrecuencia.getSelectedItem().toString();
     }
@@ -102,8 +109,9 @@ public class VistaModificar extends JFrame {
         aplicarButton.addActionListener(listener);
     }
 
-
-
+    public JFrame getFrame() {
+        return frame;
+    }
 }
 
 

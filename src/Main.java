@@ -13,9 +13,13 @@ public class Main {
 
         //ModeloListaTareas modeloListaTareas = new ModeloListaTareas(new ArrayList<ModeloTareaHector>());
         ArrayList<ModeloTareaHector> listaTareas = new ArrayList<ModeloTareaHector>();
-        tareasTest(listaTareas);
+        ArrayList<ModeloTareaHector> listaTareasPorEmpezar = new ArrayList<ModeloTareaHector>();
+        ArrayList<ModeloTareaHector> listaTareasEnProceso = new ArrayList<ModeloTareaHector>();
+        ArrayList<ModeloTareaHector> listaTareasCompletadas = new ArrayList<ModeloTareaHector>();
+        ArrayList<ModeloTareaHector> listaTareasVencidas = new ArrayList<ModeloTareaHector>();
+        tareasTest(listaTareas, listaTareasPorEmpezar, listaTareasEnProceso, listaTareasCompletadas, listaTareasVencidas);
 
-        VistaAdministradorDeTareas vistaAdministradorDeTareas = new VistaAdministradorDeTareas(listaTareas);
+        VistaAdministradorDeTareas vistaAdministradorDeTareas = new VistaAdministradorDeTareas(listaTareas, listaTareasPorEmpezar, listaTareasEnProceso, listaTareasCompletadas, listaTareasVencidas);
         vistaAdministradorDeTareas.setVisible(true);
 
         ControladorAdministradorDeTareas controladorAdministradorDeTareas = new ControladorAdministradorDeTareas(vistaAdministradorDeTareas, listaTareas);
@@ -23,28 +27,46 @@ public class Main {
     }
     // Metodo Para crear Tareas para test
 
-    public static void tareasTest(ArrayList<ModeloTareaHector> listaTareas){
-        ModeloTareaHector modelotareaTest = new ModeloTareaHector("Limpiar Casa", "Facil", "Por Empezar");
-        ModeloTareaHector modelotareaTest1 = new ModeloTareaHector("Estudiar", "Media", "En Proceso");
+    public static void tareasTest(ArrayList<ModeloTareaHector> listaTareas, ArrayList<ModeloTareaHector> listaTareasPorEmpezar, ArrayList<ModeloTareaHector> listaTareasEnProceso, ArrayList<ModeloTareaHector> listaTareasCompletada, ArrayList<ModeloTareaHector> listaTareasVencida){
+        ModeloTareaHector modelotareaTest = new ModeloTareaHector("Limpiar Casa", "Facil", "Por empezar");
+        ModeloTareaHector modelotareaTest1 = new ModeloTareaHector("Estudiar", "Media", "En proceso");
         ModeloTareaHector modelotareaTest2 = new ModeloTareaHector("Lavar los platos", "Facil", "Completada");
         ModeloTareaHector modelotareaTest3 = new ModeloTareaHector("Tarea Dificil", "Dificil", "Vencida");
-        ModeloTareaHector modelotareaTest4 = new ModeloTareaHector("Tarea facil", "Facil", "Por Empezar");
+        ModeloTareaHector modelotareaTest4 = new ModeloTareaHector("Tarea facil", "Facil", "Por empezar");
 
-        ModeloTareaHector modelotareaTest5 = new ModeloTareaHector("Tarea facil", "Facil", "En Proceso");
-        ModeloTareaHector modelotareaTest6 = new ModeloTareaHector("Tarea Media", "Media", "En Proceso");
-        ModeloTareaHector modelotareaTest7 = new ModeloTareaHector("Tarea facil", "Facil", "Por Empezar");
-        ModeloTareaHector modelotareaTest8 = new ModeloTareaHector("Tarea facil", "Facil", "Por Empezar");
+        ModeloTareaHector modelotareaTest5 = new ModeloTareaHector("Tarea facil", "Facil", "En proceso");
+        ModeloTareaHector modelotareaTest6 = new ModeloTareaHector("Tarea Media", "Media", "En proceso");
+        ModeloTareaHector modelotareaTest7 = new ModeloTareaHector("Tarea facil", "Facil", "Por empezar");
+        ModeloTareaHector modelotareaTest8 = new ModeloTareaHector("Tarea facil", "Facil", "Por empezar");
 
         listaTareas.add(modelotareaTest);
+        listaTareasPorEmpezar.add(modelotareaTest);
+
         listaTareas.add(modelotareaTest1);
+        listaTareasEnProceso.add(modelotareaTest1);
+
         listaTareas.add(modelotareaTest2);
+        listaTareasCompletada.add(modelotareaTest2);
+
         listaTareas.add(modelotareaTest3);
+        listaTareasVencida.add(modelotareaTest3);
+
         listaTareas.add(modelotareaTest4);
+        listaTareasPorEmpezar.add(modelotareaTest4);
 
         listaTareas.add(modelotareaTest5);
+        listaTareasEnProceso.add(modelotareaTest5);
+
+
         listaTareas.add(modelotareaTest6);
+        listaTareasEnProceso.add(modelotareaTest6);
+
         listaTareas.add(modelotareaTest7);
+        listaTareasPorEmpezar.add(modelotareaTest7);
+
         listaTareas.add(modelotareaTest8);
+        listaTareasPorEmpezar.add(modelotareaTest8);
+
     }
 
 

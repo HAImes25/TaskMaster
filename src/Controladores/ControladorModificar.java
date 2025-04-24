@@ -25,15 +25,18 @@ public class ControladorModificar extends JFrame {
         this.listaTareas = listaTareas;
 
 
+        // Combobox Predeterminado
+
+
+        vista.getComboBoxEstadoCombo().setSelectedItem(modelo.getEstado());
+
+
 
         this.vista.addCancelarListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Cancelando....");
-                //JOptionPane.showMessageDialog(null, "Modificación cancelada.");
-                //Cerrar/eliminar VentanaModificar
-                //Crear ventana AdminTareas Actualizada
-
+                vista.getFrame().dispose();
 
             //VentanaPrincipal.setVisible(true);
                 //((JFrame)SwingUtilities.getWindowAncestor(panelModificar)).dispose();
@@ -47,10 +50,12 @@ public class ControladorModificar extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 
+
                 modelo.setTitulo(vista.getTitul());    // Titulo
                 modelo.setDificultad(vista.getComboBoxDificultad());   // Dificultad
                 //Calendario tadavia no lo ponemos
                 modelo.setEstado(vista.getComboBoxEstado());   // Estado
+                System.out.println(vista.getComboBoxEstado() + " Este es el estado ");
                 modelo.setFrecuencia(vista.getComboBoxFrecuencia());  //Frecuencia
                 //Hota revisoon  tadavia no lo ponemos
                 modelo.setDescripcion(vista.getDescripcion());
@@ -60,7 +65,6 @@ public class ControladorModificar extends JFrame {
                 // Aquí pots mostrar algun missatge confirmant l'actualització
                 System.out.println("Tasca actualitzada");
 
-                //System.out.println("Tarea lista 1 " + listaTareas.getListaTareasPorEmpezar(listaTareas).get(1).getTitulo());
 
                 System.out.println(modelo.getTitulo());
                 System.out.println(vista.getComboBoxDificultad());
@@ -68,18 +72,40 @@ public class ControladorModificar extends JFrame {
                 System.out.println(vista.getComboBoxFrecuencia());
                 System.out.println(modelo.getDescripcion());
 
+                vistaAdministradorDeTareas.getListaTareasPorEmpezar().clear();
+                vistaAdministradorDeTareas.getListaTareasEnProceso().clear();
+                vistaAdministradorDeTareas.getListaTareasCompletada().clear();
+                vistaAdministradorDeTareas.getListaTareasVencida().clear();
+
+
+                for (int i = 0; i < listaTareas.size(); i++) {
+                    if (listaTareas.get(i).getEstado() == "Por empezar"){
+                        vistaAdministradorDeTareas.getListaTareasPorEmpezar().add(listaTareas.get(i));
+
+                    } else if (listaTareas.get(i).getEstado() == "En proceso") {
+                        vistaAdministradorDeTareas.getListaTareasEnProceso().add(listaTareas.get(i));
+
+                    }else if (listaTareas.get(i).getEstado() == "Completada"){
+                        vistaAdministradorDeTareas.getListaTareasCompletada().add(listaTareas.get(i));
+
+                    } else if (listaTareas.get(i).getEstado() == "Vencida") {
+                        vistaAdministradorDeTareas.getListaTareasVencida().add(listaTareas.get(i));
+                    }
+                }
+
+
+
                 vistaAdministradorDeTareas.dispose();
 
-                VistaAdministradorDeTareas vistaAdministradorDeTareas1 = new VistaAdministradorDeTareas(listaTareas);
+
+                VistaAdministradorDeTareas vistaAdministradorDeTareas1 = new VistaAdministradorDeTareas(listaTareas,vistaAdministradorDeTareas.getListaTareasPorEmpezar(), vistaAdministradorDeTareas.getListaTareasEnProceso(), vistaAdministradorDeTareas.getListaTareasCompletada(), vistaAdministradorDeTareas.getListaTareasVencida());
+                vistaAdministradorDeTareas1.rellenarEspacioPorEmpezar();
+                vistaAdministradorDeTareas1.rellenarEspacioEnProceso();
+                vistaAdministradorDeTareas1.rellenarEspacioCompletada();
+                vistaAdministradorDeTareas1.rellenarEspacioPorVencida();
                 vistaAdministradorDeTareas1.setVisible(true);
 
 
-
-
-                vistaAdministradorDeTareas1.rellenarEspacioPorEmpezar();
-//                vistaAdministradorDeTareas1.rellenarEspacioEnProceso(listaTareas.getListaTareasEnProceso(listaTareas));
-//                vistaAdministradorDeTareas1.rellenarEspacioCompletada(listaTareas.getListaTareasCompletada(listaTareas));
-//                vistaAdministradorDeTareas1.rellenarEspacioPorVencida(listaTareas.getListaTareasVencida(listaTareas));
 
 
 
@@ -91,6 +117,8 @@ public class ControladorModificar extends JFrame {
 
                 }
         });
+
+
 
 
 
