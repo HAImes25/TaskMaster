@@ -66,17 +66,6 @@ public class ControladorModificar extends JFrame {
                 modelo.setDescripcion(vista.getDescripcion());
 
 
-
-                // Aquí pots mostrar algun missatge confirmant l'actualització
-                System.out.println("Tasca actualitzada");
-
-
-                System.out.println(modelo.getTitulo());
-                System.out.println(vista.getComboBoxDificultad());
-                System.out.println(vista.getComboBoxEstado());
-                System.out.println(vista.getComboBoxFrecuencia());
-                System.out.println(modelo.getDescripcion());
-
                 vistaAdministradorDeTareas.getListaTareasPorEmpezar().clear();
                 vistaAdministradorDeTareas.getListaTareasEnProceso().clear();
                 vistaAdministradorDeTareas.getListaTareasCompletada().clear();
@@ -113,7 +102,48 @@ public class ControladorModificar extends JFrame {
                 vista.getFrame().dispose();
 
 
+                String sqlUpdate = "UPDATE `tasques` " +
+                        "SET `titol` = ?," +
+                        " `dificultats_id` = ?," +
+                        " `data_inici` = ?," +
+                        " `data_limit` = ?," +
+                        " `estats_id` = ?," +
+                        " `frecuencia` = ?," +
+                        " `descripcio` = ?," +
+                        " `quantitat_exp` = ?" +
+                        " WHERE `tasques`.`id` = ? ;";
 
+                // Ver cual es el id de dificultad
+                int idDificultad = 0;
+                if (vista.getComboBoxDificultad().toString() == "Facil"){
+                    System.out.println("la dificultad es Facil");
+                    idDificultad = 1;
+                } else if (vista.getComboBoxDificultad().toString() == "Media") {
+                    System.out.println(" es media");
+                    idDificultad = 2;
+                }else {
+                    System.out.println(" es dificil");
+                    idDificultad = 3;
+                }
+
+//                try (Connection conn = ConexionBD.conectar();
+//                     PreparedStatement stm = conn.prepareStatement(sqlUpdate)){
+//
+//                    stm.setString(1, vista.getTitul()); // Modificar sql
+//                    stm.setString(2, vista.getTitul());
+//
+//                    // Hacer otro try para obtener el id de la tasca para poder hacer el update
+//
+//
+//
+//                    stm.executeUpdate();                // Ejecutamos la Consulta
+//
+//                } catch (SQLException l) {
+//
+//                    l.printStackTrace();
+//                    throw new RuntimeException("Error al ingresar alumno a la base de datos");
+//
+//                }
 
 
 
