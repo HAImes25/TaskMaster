@@ -2,23 +2,25 @@ package Controladores;
 
 import Vistas.*;
 import Modelos.*;
+import Controladores.*;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
-public class ControladorCrear {
+public class ControladorCrear extends JFrame{
 
-    private ModeloListaTareas listaTareas;
+    private ArrayList<ModeloTareaHector> listaTareas;
     private VistaCrear vistaCrear;
     private ModeloTareaHector modeloTarea;
     private VistaAdministradorDeTareas vistaAdministradorDeTareas;
 
 
-    public ControladorCrear(ModeloListaTareas listaTareas, VistaCrear vistaCrear, ModeloTareaHector modeloTarea, VistaAdministradorDeTareas vistaAdministradorDeTareas){
+    public ControladorCrear(ArrayList<ModeloTareaHector> listaTareas, VistaCrear vistaCrear, VistaAdministradorDeTareas vistaAdministradorDeTareas){
         this.listaTareas = listaTareas;
         this.vistaCrear = vistaCrear;
-        this.modeloTarea = modeloTarea;
+
         this.vistaAdministradorDeTareas = vistaAdministradorDeTareas;
 
 
@@ -26,10 +28,23 @@ public class ControladorCrear {
         this.vistaCrear.addCancelarListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Cancelando....");
+                vistaCrear.getFrame().dispose();
                 JOptionPane.showMessageDialog(null, "Creación de tarea cancelada.");
                 vistaAdministradorDeTareas.setVisible(true);
-                vistaCrear.setVisible(false);
+            }
+        });
+
+
+        this.vistaCrear.addCrearListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("crear");
+
+                //al clicar s'ha de guardar la tarea a la lista tareas
+
+
+
+
             }
         });
     }

@@ -1,5 +1,6 @@
 
 import Vistas.*;
+import Vistas.*;
 import Modelos.*;
 import Controladores.*;
 
@@ -21,6 +22,8 @@ public class Main {
 
         VistaAdministradorDeTareas vistaAdministradorDeTareas = new VistaAdministradorDeTareas(listaTareas, listaTareasPorEmpezar, listaTareasEnProceso, listaTareasCompletadas, listaTareasVencidas);
         vistaAdministradorDeTareas.setVisible(true);
+
+
 
         ControladorAdministradorDeTareas controladorAdministradorDeTareas = new ControladorAdministradorDeTareas(vistaAdministradorDeTareas, listaTareas);
 

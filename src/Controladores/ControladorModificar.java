@@ -41,6 +41,7 @@ public class ControladorModificar extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Cancelando....");
                 vista.getFrame().dispose();
+                JOptionPane.showMessageDialog(null, "Modificación cancelada.");
 
             //VentanaPrincipal.setVisible(true);
                 //((JFrame)SwingUtilities.getWindowAncestor(panelModificar)).dispose();

@@ -213,6 +213,7 @@ public class VistaAdministradorDeTareas extends JFrame{
                     VistaModificar vistaModificar = new VistaModificar(tarea);
                     ControladorModificar controladorModificar = new ControladorModificar(vistaModificar, tarea, VistaAdministradorDeTareas.this, listaTareas);
                     //Eliminar ventana AdminTareas
+
                 }
             });
             panelTarea.add(boton);

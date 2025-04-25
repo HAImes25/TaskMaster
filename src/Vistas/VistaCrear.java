@@ -67,6 +67,10 @@ public class VistaCrear extends JFrame {
         return comboBoxFrecuencia.getSelectedItem().toString();
     }
 
+    public JFrame getFrame() {
+        return frame;
+    }
+
     public void addCancelarListener(ActionListener listener) {
         cancelarButton.addActionListener(listener);
     }
