@@ -1,14 +1,18 @@
 package Controladores;
 
-import Modelos.ModeloListaTareas;
 import Modelos.ModeloTareaHector;
-import Modelos.TareaAina;
 import Vistas.*;
+import ConexionesBD.ConexionBD;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ArrayList;
+
+
 
 public class ControladorModificar extends JFrame {
 
@@ -114,9 +118,8 @@ public class ControladorModificar extends JFrame {
 
 
 
-                //eliminar este controlador pk sino se crea uno cada vez que le damos a modificar
 
-
+                ControladorModificar.this.dispose();
                 }
         });
 
