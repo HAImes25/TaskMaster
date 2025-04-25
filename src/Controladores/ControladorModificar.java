@@ -105,6 +105,8 @@ public class ControladorModificar extends JFrame {
                 vistaAdministradorDeTareas1.rellenarEspacioPorVencida();
                 vistaAdministradorDeTareas1.setVisible(true);
 
+                vista.getFrame().dispose();
+
 
 
 
