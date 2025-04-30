@@ -33,6 +33,8 @@ public class ControladorModificar extends JFrame {
 
 
         vista.getComboBoxEstadoCombo().setSelectedItem(modelo.getEstado());
+        vista.getComboBoxDificultadCombo().setSelectedItem(modelo.getDificultad());
+        vista.getComboBoxFrecuenciaCombo().setSelectedItem(modelo.getFrecuencia());
 
 
 

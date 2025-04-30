@@ -89,6 +89,10 @@ public class VistaModificar extends JFrame {
         return comboBoxDificultad.getSelectedItem().toString();
     }
 
+    public JComboBox getComboBoxDificultadCombo() {
+        return comboBoxDificultad;
+    }
+
     public String getComboBoxEstado() {
         return comboBoxEstado.getSelectedItem().toString();
     }
@@ -99,6 +103,10 @@ public class VistaModificar extends JFrame {
 
     public String getComboBoxFrecuencia() {
         return comboBoxFrecuencia.getSelectedItem().toString();
+    }
+
+    public JComboBox getComboBoxFrecuenciaCombo() {
+        return comboBoxFrecuencia;
     }
 
     public void addCancelarListener(ActionListener listener) {
