@@ -115,18 +115,39 @@ public class ControladorModificar extends JFrame {
                         " `quantitat_exp` = ?" +
                         " WHERE `tasques`.`id` = ? ;";
 
-                // Ver cual es el id de dificultad
+                // Ver cual es el id de dificultad para poner en el sql
                 int idDificultad = 0;
                 if (vista.getComboBoxDificultad().toString() == "Facil"){
                     System.out.println("la dificultad es Facil");
                     idDificultad = 1;
                 } else if (vista.getComboBoxDificultad().toString() == "Media") {
-                    System.out.println(" es media");
+                    System.out.println("la dificultad es media");
                     idDificultad = 2;
                 }else {
-                    System.out.println(" es dificil");
+                    System.out.println("la dificultad es dificil");
                     idDificultad = 3;
                 }
+                String dataInici = modelo.getFechaInici();
+                String dataLimit = modelo.getFechaInici();
+
+                // Falta acabar que el esatdo del sql sea el correcto 
+
+//                int idEstats = 0;
+//                if (vista.getComboBoxEstado().toString() == "Por empezar"){
+//                    System.out.println("Por empezar");
+//                    idEstats = 1;
+//                } else if (vista.getComboBoxEstado().toString() == "En proceso") {
+//                    System.out.println("la dificultad es media");
+//                    idEstats = 2;
+//                }else {
+//                    System.out.println("la dificultad es dificil");
+//                    idEstats = 3;
+//                }
+
+
+
+
+
 
 //                try (Connection conn = ConexionBD.conectar();
 //                     PreparedStatement stm = conn.prepareStatement(sqlUpdate)){
