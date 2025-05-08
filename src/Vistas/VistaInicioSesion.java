@@ -14,4 +14,5 @@ public class VistaInicioSesion {
     private JButton registrarButton;
     private JLabel labelConfirmarConstraseña;
     private JLabel labelEmail;
+    private JLabel IMG;
 }
