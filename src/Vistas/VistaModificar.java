@@ -106,7 +106,7 @@ public class VistaModificar extends JFrame {
     }
 
     public JComboBox getComboBoxFrecuenciaCombo() {
-        return comboBoxFrecuencia;
+        return this.comboBoxFrecuencia;
     }
 
     public void addCancelarListener(ActionListener listener) {

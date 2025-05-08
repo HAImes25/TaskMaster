@@ -15,10 +15,11 @@ public class ModeloTareaHector {
 
     private static final DateTimeFormatter formatoFecha = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
 
-    public ModeloTareaHector(String nombre, String dificultad, String estado){
+    public ModeloTareaHector(String nombre, String dificultad, String estado, String frecuencia){
         this.titulo = nombre;
         this.dificultad = dificultad;
         this.estado = estado;
+        this.frecuencia = frecuencia;
         this.fechaFinal = LocalDateTime.now();
     }
 

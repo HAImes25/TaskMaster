@@ -31,6 +31,7 @@ public class ControladorModificar extends JFrame {
 
         // Combobox Predeterminado
 
+        System.out.println("la frecuencia que no va por nada es " + modelo.getFrecuencia());
 
         vista.getComboBoxEstadoCombo().setSelectedItem(modelo.getEstado());
         vista.getComboBoxDificultadCombo().setSelectedItem(modelo.getDificultad());
@@ -63,8 +64,10 @@ public class ControladorModificar extends JFrame {
                 //Calendario tadavia no lo ponemos
                 modelo.setEstado(vista.getComboBoxEstado());   // Estado
                 System.out.println(vista.getComboBoxEstado() + " Este es el estado ");
-                modelo.setFrecuencia(vista.getComboBoxFrecuencia());  //Frecuencia
-                //Hota revisoon  tadavia no lo ponemos
+
+                modelo.setFrecuencia(vista.getComboBoxFrecuencia());  //Frecuencia               El error es que le combo de frecuencia esta vacio
+
+                //Hora revisoon  tadavia no lo ponemos
                 modelo.setDescripcion(vista.getDescripcion());
 
 
@@ -100,7 +103,6 @@ public class ControladorModificar extends JFrame {
                 vistaAdministradorDeTareas1.rellenarEspacioCompletada();
                 vistaAdministradorDeTareas1.rellenarEspacioPorVencida();
                 vistaAdministradorDeTareas1.setVisible(true);
-
                 vista.getFrame().dispose();
 
 
@@ -130,23 +132,22 @@ public class ControladorModificar extends JFrame {
                 String dataInici = modelo.getFechaInici();
                 String dataLimit = modelo.getFechaInici();
 
-                // Falta acabar que el esatdo del sql sea el correcto 
+                // Falta acabar que el esatdo del sql sea el correcto
 
-//                int idEstats = 0;
-//                if (vista.getComboBoxEstado().toString() == "Por empezar"){
-//                    System.out.println("Por empezar");
-//                    idEstats = 1;
-//                } else if (vista.getComboBoxEstado().toString() == "En proceso") {
-//                    System.out.println("la dificultad es media");
-//                    idEstats = 2;
-//                }else {
-//                    System.out.println("la dificultad es dificil");
-//                    idEstats = 3;
-//                }
-
-
-
-
+                int idEstats = 0;
+                if (vista.getComboBoxEstado().toString() == "Por empezar"){
+                    System.out.println("Por empezar");
+                    idEstats = 1;
+                } else if (vista.getComboBoxEstado().toString() == "En proceso") {
+                    System.out.println("la En proceso");
+                    idEstats = 2;
+                } else if (vista.getComboBoxEstado().toString() == "Completada") {
+                    System.out.println("la Completada");
+                    idEstats = 3;
+                }else {
+                    System.out.println("esta Vencida");
+                    idEstats = 4;
+                }
 
 
 //                try (Connection conn = ConexionBD.conectar();

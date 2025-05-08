@@ -31,16 +31,16 @@ public class Main {
     // Metodo Para crear Tareas para test
 
     public static void tareasTest(ArrayList<ModeloTareaHector> listaTareas, ArrayList<ModeloTareaHector> listaTareasPorEmpezar, ArrayList<ModeloTareaHector> listaTareasEnProceso, ArrayList<ModeloTareaHector> listaTareasCompletada, ArrayList<ModeloTareaHector> listaTareasVencida){
-        ModeloTareaHector modelotareaTest = new ModeloTareaHector("Limpiar Casa", "Facil", "Por empezar");
-        ModeloTareaHector modelotareaTest1 = new ModeloTareaHector("Estudiar", "Media", "En proceso");
-        ModeloTareaHector modelotareaTest2 = new ModeloTareaHector("Lavar los platos", "Facil", "Completada");
-        ModeloTareaHector modelotareaTest3 = new ModeloTareaHector("Tarea Dificil", "Dificil", "Vencida");
-        ModeloTareaHector modelotareaTest4 = new ModeloTareaHector("Tarea facil", "Facil", "Por empezar");
+        ModeloTareaHector modelotareaTest = new ModeloTareaHector("Limpiar Casa", "Facil", "Por empezar", "Diaria");
+        ModeloTareaHector modelotareaTest1 = new ModeloTareaHector("Estudiar", "Media", "En proceso", "Única");
+        ModeloTareaHector modelotareaTest2 = new ModeloTareaHector("Lavar los platos", "Facil", "Completada", "Mensual");
+        ModeloTareaHector modelotareaTest3 = new ModeloTareaHector("Tarea Dificil", "Dificil", "Vencida", "Semanal");
+        ModeloTareaHector modelotareaTest4 = new ModeloTareaHector("Tarea facil", "Facil", "Por empezar", "Diaria");
 
-        ModeloTareaHector modelotareaTest5 = new ModeloTareaHector("Tarea facil", "Facil", "En proceso");
-        ModeloTareaHector modelotareaTest6 = new ModeloTareaHector("Tarea Media", "Media", "En proceso");
-        ModeloTareaHector modelotareaTest7 = new ModeloTareaHector("Tarea facil", "Facil", "Por empezar");
-        ModeloTareaHector modelotareaTest8 = new ModeloTareaHector("Tarea facil", "Facil", "Por empezar");
+        ModeloTareaHector modelotareaTest5 = new ModeloTareaHector("Tarea facil", "Facil", "En proceso", "Única");
+        ModeloTareaHector modelotareaTest6 = new ModeloTareaHector("Tarea Media", "Media", "En proceso", "Diaria");
+        ModeloTareaHector modelotareaTest7 = new ModeloTareaHector("Tarea facil", "Facil", "Por empezar", "Semanal");
+        ModeloTareaHector modelotareaTest8 = new ModeloTareaHector("Tarea facil", "Facil", "Por empezar", "Diaria");
 
         listaTareas.add(modelotareaTest);
         listaTareasPorEmpezar.add(modelotareaTest);

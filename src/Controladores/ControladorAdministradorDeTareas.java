@@ -27,7 +27,7 @@ public class ControladorAdministradorDeTareas {
 
                 VistaCrear vistaCrear = new VistaCrear();
                 vistaAdministradorDeTareas.setVisible(false);
-                ModeloTareaHector tarea = new ModeloTareaHector("", "", "");
+                ModeloTareaHector tarea = new ModeloTareaHector("", "", "", "");
                 ControladorCrear controladorCrear = new ControladorCrear(listTareas, vistaCrear, vistaAdministradorDeTareas);
 
             }
