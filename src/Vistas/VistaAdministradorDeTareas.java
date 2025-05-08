@@ -1,5 +1,6 @@
 package Vistas;
 
+import ConexionesBD.ConexionBD;
 import Controladores.ControladorModificar;
 import Modelos.ModeloListaTareas;
 import Modelos.ModeloTareaHector;
@@ -8,6 +9,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class VistaAdministradorDeTareas extends JFrame{
@@ -185,6 +189,77 @@ public class VistaAdministradorDeTareas extends JFrame{
     }
 
     public void rellenarEspacioPorVencida(){
+        // Crear un JPanel de contenedor de las tareas
+        JPanel contenedorTareas = new JPanel();
+        contenedorTareas.setLayout(new GridLayout(0, 1));
+
+        // Limpiar el contenedor antes de agregar nuevos elementos
+        contenedorTareas.removeAll();
+
+        for (ModeloTareaHector tarea : listaTareasVencida) {
+
+            JPanel panelTarea = new JPanel();
+            panelTarea.setLayout(new GridLayout(2, 2));
+
+            JLabel labelnombre = new JLabel(tarea.getTitulo());
+            panelTarea.add(labelnombre);
+
+            JLabel labelDificultad = new JLabel(tarea.getDificultad());
+            panelTarea.add(labelDificultad);
+
+            JLabel labelFecha = new JLabel(tarea.getFechaInici().toString());
+            panelTarea.add(labelFecha);
+
+            JButton boton = new JButton("Modificar");
+            boton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    VistaModificar vistaModificar = new VistaModificar(tarea);
+                    ControladorModificar controladorModificar = new ControladorModificar(vistaModificar, tarea, VistaAdministradorDeTareas.this, listaTareas);
+                    //Eliminar ventana AdminTareas
+
+                }
+            });
+            panelTarea.add(boton);
+
+            contenedorTareas.add(panelTarea);
+        }
+
+        // Agregar el contenedor al JScrollPane
+        panelVencida.setViewportView(contenedorTareas);
+
+        // Actualizar la vista
+        revalidate();
+        repaint();
+    }
+
+    public void rellenarEspacioSql(){
+
+        String sqlSelect = "SELECT * FROM `tasques` ";
+
+
+//        try (Connection conn = ConexionBD.conectar();
+//             PreparedStatement stm = conn.prepareStatement(sqlSelect)){
+//            // Hacer otro try para obtener el id de la tasca para poder hacer el update de momento pongo directamente un id
+//
+//            stm.executeUpdate();                // Ejecutamos la Consulta
+//            System.out.println("Sql Ejecutado");
+//
+//
+//        } catch (SQLException l) {
+//
+//            l.printStackTrace();
+//            throw new RuntimeException("Error al actualizar alumno a la base de datos");
+//
+//        }
+
+
+
+
+
+
+
+
         // Crear un JPanel de contenedor de las tareas
         JPanel contenedorTareas = new JPanel();
         contenedorTareas.setLayout(new GridLayout(0, 1));

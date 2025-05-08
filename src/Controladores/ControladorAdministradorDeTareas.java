@@ -38,6 +38,7 @@ public class ControladorAdministradorDeTareas {
         vistaAdministradorDeTareas.rellenarEspacioEnProceso();
         vistaAdministradorDeTareas.rellenarEspacioCompletada();
         vistaAdministradorDeTareas.rellenarEspacioPorVencida();
+        vistaAdministradorDeTareas.rellenarEspacioSql();
 
 
 

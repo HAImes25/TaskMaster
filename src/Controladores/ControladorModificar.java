@@ -31,8 +31,6 @@ public class ControladorModificar extends JFrame {
 
         // Combobox Predeterminado
 
-        System.out.println("la frecuencia que no va por nada es " + modelo.getFrecuencia());
-
         vista.getComboBoxEstadoCombo().setSelectedItem(modelo.getEstado());
         vista.getComboBoxDificultadCombo().setSelectedItem(modelo.getDificultad());
         vista.getComboBoxFrecuenciaCombo().setSelectedItem(modelo.getFrecuencia());
@@ -63,10 +61,7 @@ public class ControladorModificar extends JFrame {
                 modelo.setDificultad(vista.getComboBoxDificultad());   // Dificultad
                 //Calendario tadavia no lo ponemos
                 modelo.setEstado(vista.getComboBoxEstado());   // Estado
-                System.out.println(vista.getComboBoxEstado() + " Este es el estado ");
-
-                modelo.setFrecuencia(vista.getComboBoxFrecuencia());  //Frecuencia               El error es que le combo de frecuencia esta vacio
-
+                modelo.setFrecuencia(vista.getComboBoxFrecuencia());  //Frecuencia
                 //Hora revisoon  tadavia no lo ponemos
                 modelo.setDescripcion(vista.getDescripcion());
 
@@ -149,26 +144,52 @@ public class ControladorModificar extends JFrame {
                     idEstats = 4;
                 }
 
+                int frecuencia = 0;
+                if (vista.getComboBoxFrecuencia().toString() == "Única"){
+                    System.out.println("la Frecuencia es Única");
+                    frecuencia = 0;
+                } else if (vista.getComboBoxFrecuencia().toString() == "Diaria") {
+                    System.out.println("la Frecuencia es Diaria");
+                    frecuencia = 1;
+                }else if (vista.getComboBoxFrecuencia().toString() == "Semanal"){
+                    System.out.println("la Frecuencia es Semanal");
+                    frecuencia = 7;
+                }else {
+                    System.out.println("la Frecuencia es Mensual");
+                    frecuencia = 30;
+                }
 
-//                try (Connection conn = ConexionBD.conectar();
-//                     PreparedStatement stm = conn.prepareStatement(sqlUpdate)){
-//
-//                    stm.setString(1, vista.getTitul()); // Modificar sql
-//                    stm.setString(2, vista.getTitul());
-//
-//                    // Hacer otro try para obtener el id de la tasca para poder hacer el update
-//
-//
-//
-//                    stm.executeUpdate();                // Ejecutamos la Consulta
-//
-//                } catch (SQLException l) {
-//
-//                    l.printStackTrace();
-//                    throw new RuntimeException("Error al ingresar alumno a la base de datos");
-//
-//                }
 
+
+
+
+                try (Connection conn = ConexionBD.conectar();
+                     PreparedStatement stm = conn.prepareStatement(sqlUpdate)){
+                    // Hacer otro try para obtener el id de la tasca para poder hacer el update de momento pongo directamente un id
+
+
+                    stm.setString(1, vista.getTitul()); // Modificar sql
+                    stm.setString(2, String.valueOf(idDificultad));
+                    stm.setString(3, modelo.getFechaInici());
+                    stm.setString(4, modelo.getFechaFinal());
+                    stm.setString(5, String.valueOf(idEstats));
+                    stm.setString(6, String.valueOf(frecuencia));
+                    stm.setString(7, modelo.getDescripcion());
+                    stm.setString(8, String.valueOf(idDificultad));    // Esta linea es la XP, como todavia no
+                    stm.setString(9, String.valueOf(1));
+
+                    System.out.println("Sql preparado");
+
+                    stm.executeUpdate();                // Ejecutamos la Consulta
+                    System.out.println("Sql Ejecutado");
+
+
+                } catch (SQLException l) {
+
+                    l.printStackTrace();
+                    throw new RuntimeException("Error al actualizar alumno a la base de datos");
+
+                }
 
 
 
