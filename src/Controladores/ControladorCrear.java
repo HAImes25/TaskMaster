@@ -45,7 +45,6 @@ public class ControladorCrear extends JFrame{
 
                 modeloTarea = new ModeloTareaHector("", "", "", "");
 
-                //No funciona el problema esta en alguna cosa del modeloTareaHector
                 modeloTarea.setTitulo(vistaCrear.getTitul());
                 System.out.println("Titulo");
                 modeloTarea.setDificultad(vistaCrear.getComboBoxDificultad());
@@ -85,6 +84,60 @@ public class ControladorCrear extends JFrame{
 
                 vistaCrear.getFrame().dispose();
 
+
+
+                int idDificultad = 0;
+                int experiencia = 0;
+                String dificultadSeleccionada = vistaCrear.getComboBoxDificultad().toString();
+
+                if (dificultadSeleccionada.equals("Facil")) {
+                    System.out.println("la dificultad es Facil");
+                    idDificultad = 1;
+                    experiencia = 1;
+                } else if (dificultadSeleccionada.equals("Media")) {
+                    System.out.println("la dificultad es media");
+                    idDificultad = 2;
+                    experiencia = 2;
+                } else {
+                    System.out.println("la dificultad es dificil");
+                    idDificultad = 3;
+                    experiencia = 3;
+                }
+
+                String fechaInici = modeloTarea.getFechaInici();
+                String fechaFinal = modeloTarea.getFechaFinal();
+
+
+                int idEstats = 0;
+                if (vistaCrear.getComboBoxEstado().toString() == "Por empezar"){
+                    System.out.println("Por empezar");
+                    idEstats = 1;
+                } else if (vistaCrear.getComboBoxEstado().toString() == "En proceso") {
+                    System.out.println("la En proceso");
+                    idEstats = 2;
+                } else if (vistaCrear.getComboBoxEstado().toString() == "Completada") {
+                    System.out.println("la Completada");
+                    idEstats = 3;
+                }else {
+                    System.out.println("esta Vencida");
+                    idEstats = 4;
+                }
+
+                int frecuencia = 0;
+                if (vistaCrear.getComboBoxFrecuencia().toString() == "Única"){
+                    System.out.println("la Frecuencia es Única");
+                    frecuencia = 0;
+                } else if (vistaCrear.getComboBoxFrecuencia().toString() == "Diaria") {
+                    System.out.println("la Frecuencia es Diaria");
+                    frecuencia = 1;
+                }else if (vistaCrear.getComboBoxFrecuencia().toString() == "Semanal"){
+                    System.out.println("la Frecuencia es Semanal");
+                    frecuencia = 7;
+                }else {
+                    System.out.println("la Frecuencia es Mensual");
+                    frecuencia = 30;
+                }
+
                 String sqlInsert = "INSERT INTO `tasques` " +
                         "(`titol`," +
                         " `dificultats_id`," +
@@ -96,22 +149,6 @@ public class ControladorCrear extends JFrame{
                         " `quantitat_exp`) " +
                         "VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
 
-                int idDificultad = 0;
-                String dificultadSeleccionada = vistaCrear.getComboBoxDificultad().toString();
-
-                if (dificultadSeleccionada.equals("Facil")) {
-                    System.out.println("la dificultad es Facil");
-                    idDificultad = 1;
-                } else if (dificultadSeleccionada.equals("Media")) {
-                    System.out.println("la dificultad es media");
-                    idDificultad = 2;
-                } else {
-                    System.out.println("la dificultad es dificil");
-                    idDificultad = 3;
-                }
-
-                String fechaInici = modeloTarea.getFechaInici();
-                String fechaFinal = modeloTarea.getFechaFinal();
 
                 try {
                     PreparedStatement ps = ConexionBD.conectar().prepareStatement(sqlInsert);
@@ -119,10 +156,10 @@ public class ControladorCrear extends JFrame{
                     ps.setInt(2, idDificultad);
                     ps.setString(3, fechaInici);
                     ps.setString(4, fechaFinal);
-                    ps.setString(5, modeloTarea.getEstado());
-                    ps.setString(6, modeloTarea.getFrecuencia());
+                    ps.setString(5, String.valueOf(idEstats));
+                    ps.setString(6, String.valueOf(frecuencia));
                     ps.setString(7, modeloTarea.getDescripcion());
-                    //ps.setInt(8, modeloTarea.geT);     falta la part de quantitat_exp
+                    ps.setInt(8, experiencia);
 
                     ps.executeUpdate();
                     ps.close();
