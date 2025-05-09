@@ -11,6 +11,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -238,20 +239,31 @@ public class VistaAdministradorDeTareas extends JFrame{
         String sqlSelect = "SELECT * FROM `tasques` ";
 
 
-//        try (Connection conn = ConexionBD.conectar();
-//             PreparedStatement stm = conn.prepareStatement(sqlSelect)){
-//            // Hacer otro try para obtener el id de la tasca para poder hacer el update de momento pongo directamente un id
-//
-//            stm.executeUpdate();                // Ejecutamos la Consulta
-//            System.out.println("Sql Ejecutado");
-//
-//
-//        } catch (SQLException l) {
-//
-//            l.printStackTrace();
-//            throw new RuntimeException("Error al actualizar alumno a la base de datos");
-//
-//        }
+        try (Connection conn = ConexionBD.conectar();
+             PreparedStatement stm = conn.prepareStatement(sqlSelect)){
+            // Hacer otro try para obtener el id de la tasca para poder hacer el update de momento pongo directamente un id
+
+            ResultSet rs = stm.executeQuery();           // Ejecutamos la Consulta
+            System.out.println("Sql Ejecutado");
+
+            while (rs.next()){
+                System.out.println("el nombre de la tarea de DB es " + rs.getString("titol"));
+            }
+
+
+
+
+
+
+
+
+
+        } catch (SQLException l) {
+
+            l.printStackTrace();
+            throw new RuntimeException("Error al actualizar alumno a la base de datos");
+
+        }
 
 
 
