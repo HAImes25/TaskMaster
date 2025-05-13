@@ -6,14 +6,23 @@ public class ModeloListaTareas {
 
     // Atributos
     ArrayList<ModeloTareaHector> listaTareas = new ArrayList<ModeloTareaHector>();
-
+    private String nombre = "";
+    private String path = "";
 
     // Constructor
-    public ModeloListaTareas(ArrayList<ModeloTareaHector> listaTareas){
+    public ModeloListaTareas(ArrayList<ModeloTareaHector> listaTareas, String nombre, String path, ArrayList<ModeloListaTareas> listaImagenes){
         this.listaTareas = listaTareas;
+        this.nombre = nombre;
+        this.path = path;
+        agregarImgLista(listaImagenes);
     }
 
     // Metodos
+
+    public void agregarImgLista(ArrayList<ModeloListaTareas> listaImagenes){
+        listaImagenes.add(this);
+    }
+
     public ArrayList<ModeloTareaHector> getListaTareasPorEmpezar(ModeloListaTareas listaTareas){
         ArrayList<ModeloTareaHector> listaTareasPorEmpezar = new ArrayList<ModeloTareaHector>();
         for (ModeloTareaHector tarea : listaTareas.listaTareas){
@@ -59,6 +68,17 @@ public class ModeloListaTareas {
         listaTareas.listaTareas.add(tarea);
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getPath() {
+        return path;
+    }
 
 
 }

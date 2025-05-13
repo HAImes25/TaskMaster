@@ -9,6 +9,13 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
+//        ArrayList<ModeloListaTareas> listaImagenes = new ArrayList<ModeloListaTareas>();
+//        VistaAdministradorDeTareas vistaImagenes = new VistaAdministradorDeTareas();
+//        vistaImagenes.setVisible(true);
+//        ModeloListaTareas = new ModeloListaTareas("Loro", "loro.jpg", listaImagenes);
+//        ModeloImagen modeloImagenGirasol = new ModeloImagen("Girasol", "girasol.png", listaImagenes);
+//        ModeloImagen modeloImagenRosa = new ModeloImagen("Rosa", "rosa.png", listaImagenes);
+
 
 
 
