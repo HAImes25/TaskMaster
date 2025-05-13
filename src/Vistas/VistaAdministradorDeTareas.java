@@ -234,28 +234,85 @@ public class VistaAdministradorDeTareas extends JFrame{
         repaint();
     }
 
-    public void rellenarEspacioSql(){
+    public void rellenarEspacioSql() {
 
         String sqlSelect = "SELECT * FROM `tasques` ";
 
 
         try (Connection conn = ConexionBD.conectar();
-             PreparedStatement stm = conn.prepareStatement(sqlSelect)){
+             PreparedStatement stm = conn.prepareStatement(sqlSelect)) {
             // Hacer otro try para obtener el id de la tasca para poder hacer el update de momento pongo directamente un id
-
             ResultSet rs = stm.executeQuery();           // Ejecutamos la Consulta
-            System.out.println("Sql Ejecutado");
 
-            while (rs.next()){
-                System.out.println("el nombre de la tarea de DB es " + rs.getString("titol"));
+            // Crear un JPanel de contenedor de las tareas Por Empezar
+            JPanel contenedorTareasPorEmpezar = new JPanel();
+            contenedorTareasPorEmpezar.setLayout(new GridLayout(0, 1));
+            // Limpiar el contenedor antes de agregar nuevos elementos
+            contenedorTareasPorEmpezar.removeAll();
+
+            // Crear un JPanel de contenedor de las tareas En proceso
+            JPanel contenedorTareasEnProceso = new JPanel();
+            contenedorTareasEnProceso.setLayout(new GridLayout(0, 1));
+            // Limpiar el contenedor antes de agregar nuevos elementos
+            contenedorTareasEnProceso.removeAll();
+
+            // Crear un JPanel de contenedor de las tareas Completada
+            JPanel contenedorTareasCompletada = new JPanel();
+            contenedorTareasCompletada.setLayout(new GridLayout(0, 1));
+            // Limpiar el contenedor antes de agregar nuevos elementos
+            contenedorTareasCompletada.removeAll();
+
+            // Crear un JPanel de contenedor de las tareas Vencida
+            JPanel contenedorTareasVencida = new JPanel();
+            contenedorTareasVencida.setLayout(new GridLayout(0, 1));
+            // Limpiar el contenedor antes de agregar nuevos elementos
+            contenedorTareasVencida.removeAll();
+
+            while (rs.next()) {
+                ModeloTareaHector tarea = new ModeloTareaHector(rs.getString("titol"), rs.getInt("dificultats_id"), rs.getInt("estats_id"), rs.getString("frecuencia"), rs.getInt("id"));
+
+                JPanel panelTarea = new JPanel();
+                panelTarea.setLayout(new GridLayout(2, 2));
+
+                JLabel labelnombre = new JLabel(tarea.getTitulo());
+                panelTarea.add(labelnombre);
+
+                JLabel labelDificultad = new JLabel(tarea.getDificultad());
+                panelTarea.add(labelDificultad);
+
+                JLabel labelFecha = new JLabel(tarea.getFechaInici().toString());
+                panelTarea.add(labelFecha);
+
+                JButton boton = new JButton("Modificar");
+                boton.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        VistaModificar vistaModificar = new VistaModificar(tarea);
+                        ControladorModificar controladorModificar = new ControladorModificar(vistaModificar, tarea, VistaAdministradorDeTareas.this, listaTareas);
+                        //Eliminar ventana AdminTareas
+
+                    }
+                });
+                panelTarea.add(boton);
+
+                if (rs.getInt("estats_id") == 1) {
+                    contenedorTareasPorEmpezar.add(panelTarea);
+                    panelPorEmpezar.setViewportView(contenedorTareasPorEmpezar);
+                } else if (rs.getInt("estats_id") == 2) {
+                    contenedorTareasEnProceso.add(panelTarea);
+                    panelEnProceso.setViewportView(contenedorTareasEnProceso);
+                } else if (rs.getInt("estats_id") == 3) {
+                    contenedorTareasCompletada.add(panelTarea);
+                    panelCompletada.setViewportView(contenedorTareasCompletada);
+                } else {
+                    contenedorTareasVencida.add(panelTarea);
+                    panelVencida.setViewportView(contenedorTareasVencida);
+
+                }
+
             }
-
-
-
-
-
-
-
+            revalidate();
+            repaint();
 
 
         } catch (SQLException l) {
@@ -264,60 +321,7 @@ public class VistaAdministradorDeTareas extends JFrame{
             throw new RuntimeException("Error al actualizar alumno a la base de datos");
 
         }
-
-
-
-
-
-
-
-
-        // Crear un JPanel de contenedor de las tareas
-        JPanel contenedorTareas = new JPanel();
-        contenedorTareas.setLayout(new GridLayout(0, 1));
-
-        // Limpiar el contenedor antes de agregar nuevos elementos
-        contenedorTareas.removeAll();
-
-        for (ModeloTareaHector tarea : listaTareasVencida) {
-
-            JPanel panelTarea = new JPanel();
-            panelTarea.setLayout(new GridLayout(2, 2));
-
-            JLabel labelnombre = new JLabel(tarea.getTitulo());
-            panelTarea.add(labelnombre);
-
-            JLabel labelDificultad = new JLabel(tarea.getDificultad());
-            panelTarea.add(labelDificultad);
-
-            JLabel labelFecha = new JLabel(tarea.getFechaInici().toString());
-            panelTarea.add(labelFecha);
-
-            JButton boton = new JButton("Modificar");
-            boton.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    VistaModificar vistaModificar = new VistaModificar(tarea);
-                    ControladorModificar controladorModificar = new ControladorModificar(vistaModificar, tarea, VistaAdministradorDeTareas.this, listaTareas);
-                    //Eliminar ventana AdminTareas
-
-                }
-            });
-            panelTarea.add(boton);
-
-            contenedorTareas.add(panelTarea);
-        }
-
-        // Agregar el contenedor al JScrollPane
-        panelVencida.setViewportView(contenedorTareas);
-
-        // Actualizar la vista
-        revalidate();
-        repaint();
     }
-
-
-
 
     // Listeners
     public void buttonCrearTareaAddActionListener(ActionListener listener){

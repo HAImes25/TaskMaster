@@ -40,7 +40,6 @@ public class ControladorModificar extends JFrame {
         this.vista.addCancelarListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Cancelando....");
                 vista.getFrame().dispose();
                 JOptionPane.showMessageDialog(null, "Modificación cancelada.");
 
@@ -88,17 +87,7 @@ public class ControladorModificar extends JFrame {
                 }
 
 
-
                 vistaAdministradorDeTareas.dispose();
-
-
-                VistaAdministradorDeTareas vistaAdministradorDeTareas1 = new VistaAdministradorDeTareas(listaTareas,vistaAdministradorDeTareas.getListaTareasPorEmpezar(), vistaAdministradorDeTareas.getListaTareasEnProceso(), vistaAdministradorDeTareas.getListaTareasCompletada(), vistaAdministradorDeTareas.getListaTareasVencida());
-                vistaAdministradorDeTareas1.rellenarEspacioPorEmpezar();
-                vistaAdministradorDeTareas1.rellenarEspacioEnProceso();
-                vistaAdministradorDeTareas1.rellenarEspacioCompletada();
-                vistaAdministradorDeTareas1.rellenarEspacioPorVencida();
-                vistaAdministradorDeTareas1.setVisible(true);
-                vista.getFrame().dispose();
 
 
                 String sqlUpdate = "UPDATE `tasques` " +
@@ -115,13 +104,10 @@ public class ControladorModificar extends JFrame {
                 // Ver cual es el id de dificultad para poner en el sql
                 int idDificultad = 0;
                 if (vista.getComboBoxDificultad().toString() == "Facil"){
-                    System.out.println("la dificultad es Facil");
                     idDificultad = 1;
                 } else if (vista.getComboBoxDificultad().toString() == "Media") {
-                    System.out.println("la dificultad es media");
                     idDificultad = 2;
                 }else {
-                    System.out.println("la dificultad es dificil");
                     idDificultad = 3;
                 }
                 String dataInici = modelo.getFechaInici();
@@ -131,31 +117,23 @@ public class ControladorModificar extends JFrame {
 
                 int idEstats = 0;
                 if (vista.getComboBoxEstado().toString() == "Por empezar"){
-                    System.out.println("Por empezar");
                     idEstats = 1;
                 } else if (vista.getComboBoxEstado().toString() == "En proceso") {
-                    System.out.println("la En proceso");
                     idEstats = 2;
                 } else if (vista.getComboBoxEstado().toString() == "Completada") {
-                    System.out.println("la Completada");
                     idEstats = 3;
                 }else {
-                    System.out.println("esta Vencida");
                     idEstats = 4;
                 }
 
                 int frecuencia = 0;
                 if (vista.getComboBoxFrecuencia().toString() == "Única"){
-                    System.out.println("la Frecuencia es Única");
                     frecuencia = 0;
                 } else if (vista.getComboBoxFrecuencia().toString() == "Diaria") {
-                    System.out.println("la Frecuencia es Diaria");
                     frecuencia = 1;
                 }else if (vista.getComboBoxFrecuencia().toString() == "Semanal"){
-                    System.out.println("la Frecuencia es Semanal");
                     frecuencia = 7;
                 }else {
-                    System.out.println("la Frecuencia es Mensual");
                     frecuencia = 30;
                 }
 
@@ -176,12 +154,9 @@ public class ControladorModificar extends JFrame {
                     stm.setString(6, String.valueOf(frecuencia));
                     stm.setString(7, modelo.getDescripcion());
                     stm.setString(8, String.valueOf(idDificultad));    // Esta linea es la XP, como todavia no
-                    stm.setString(9, String.valueOf(1));
-
-                    System.out.println("Sql preparado");
+                    stm.setString(9, String.valueOf(modelo.getId()));
 
                     stm.executeUpdate();                // Ejecutamos la Consulta
-                    System.out.println("Sql Ejecutado");
 
 
                 } catch (SQLException l) {
@@ -190,6 +165,17 @@ public class ControladorModificar extends JFrame {
                     throw new RuntimeException("Error al actualizar alumno a la base de datos");
 
                 }
+
+                VistaAdministradorDeTareas vistaAdministradorDeTareas1 = new VistaAdministradorDeTareas(listaTareas,vistaAdministradorDeTareas.getListaTareasPorEmpezar(), vistaAdministradorDeTareas.getListaTareasEnProceso(), vistaAdministradorDeTareas.getListaTareasCompletada(), vistaAdministradorDeTareas.getListaTareasVencida());
+//                vistaAdministradorDeTareas1.rellenarEspacioPorEmpezar();
+//                vistaAdministradorDeTareas1.rellenarEspacioEnProceso();
+//                vistaAdministradorDeTareas1.rellenarEspacioCompletada();
+//                vistaAdministradorDeTareas1.rellenarEspacioPorVencida();
+                vistaAdministradorDeTareas1.rellenarEspacioSql();
+                vistaAdministradorDeTareas1.setVisible(true);
+                vista.getFrame().dispose();
+                vistaAdministradorDeTareas1.repaint();
+                vistaAdministradorDeTareas1.revalidate();
 
 
 

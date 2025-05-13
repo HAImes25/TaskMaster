@@ -34,10 +34,10 @@ public class ControladorAdministradorDeTareas {
         });
 
     // Rellenar espacios de tareas
-        vistaAdministradorDeTareas.rellenarEspacioPorEmpezar();
-        vistaAdministradorDeTareas.rellenarEspacioEnProceso();
-        vistaAdministradorDeTareas.rellenarEspacioCompletada();
-        vistaAdministradorDeTareas.rellenarEspacioPorVencida();
+//        vistaAdministradorDeTareas.rellenarEspacioPorEmpezar();
+//        vistaAdministradorDeTareas.rellenarEspacioEnProceso();
+//        vistaAdministradorDeTareas.rellenarEspacioCompletada();
+//        vistaAdministradorDeTareas.rellenarEspacioPorVencida();
         vistaAdministradorDeTareas.rellenarEspacioSql();
 
 
