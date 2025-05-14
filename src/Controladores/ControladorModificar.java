@@ -177,7 +177,7 @@ public class ControladorModificar extends JFrame {
                 vistaAdministradorDeTareas1.repaint();
                 vistaAdministradorDeTareas1.revalidate();
 
-
+                // Aqui va el controlador de Crear
 
 
 
