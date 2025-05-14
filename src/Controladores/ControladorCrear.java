@@ -32,7 +32,6 @@ public class ControladorCrear extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 vistaCrear.getFrame().dispose();
-                JOptionPane.showMessageDialog(null, "Creación de tarea cancelada.");
                 vistaAdministradorDeTareas.setVisible(true);
             }
         });
@@ -43,7 +42,9 @@ public class ControladorCrear extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 System.out.println("crear");
 
+                vistaAdministradorDeTareas.setVisible(false);
                 modeloTarea = new ModeloTareaHector("", "", "", "");
+
 
                 modeloTarea.setTitulo(vistaCrear.getTitul());
                 System.out.println("Titulo");
@@ -53,19 +54,21 @@ public class ControladorCrear extends JFrame{
                 modeloTarea.setFrecuencia(vistaCrear.getComboBoxFrecuencia());
                 System.out.println("frecuencia");
 
+                listaTareas.add(modeloTarea);
+
 
 
                 for (int i = 0; i < listaTareas.size(); i++) {
-                    if (listaTareas.get(i).getEstado() == "Por empezar"){
+                    if (listaTareas.get(i).getEstado().equals( "Por empezar")){
                         vistaAdministradorDeTareas.getListaTareasPorEmpezar().add(listaTareas.get(i));
 
-                    } else if (listaTareas.get(i).getEstado() == "En proceso") {
+                    } else if (listaTareas.get(i).getEstado().equals("En proceso")) {
                         vistaAdministradorDeTareas.getListaTareasEnProceso().add(listaTareas.get(i));
 
-                    }else if (listaTareas.get(i).getEstado() == "Completada"){
+                    }else if (listaTareas.get(i).getEstado().equals("Completada")){
                         vistaAdministradorDeTareas.getListaTareasCompletada().add(listaTareas.get(i));
 
-                    } else if (listaTareas.get(i).getEstado() == "Vencida") {
+                    } else if (listaTareas.get(i).getEstado().equals("Vencida")) {
                         vistaAdministradorDeTareas.getListaTareasVencida().add(listaTareas.get(i));
                     }
                 }
@@ -82,6 +85,7 @@ public class ControladorCrear extends JFrame{
                 vistaAdministradorDeTareas1.rellenarEspacioPorVencida();
                 vistaAdministradorDeTareas1.setVisible(true);
 
+                vistaAdministradorDeTareas1.setVisible(true);
                 vistaCrear.getFrame().dispose();
 
 
@@ -109,13 +113,13 @@ public class ControladorCrear extends JFrame{
 
 
                 int idEstats = 0;
-                if (vistaCrear.getComboBoxEstado().toString() == "Por empezar"){
+                if (vistaCrear.getComboBoxEstado().toString().equals("Por empezar")){
                     System.out.println("Por empezar");
                     idEstats = 1;
-                } else if (vistaCrear.getComboBoxEstado().toString() == "En proceso") {
+                } else if (vistaCrear.getComboBoxEstado().toString().equals("En proceso")) {
                     System.out.println("la En proceso");
                     idEstats = 2;
-                } else if (vistaCrear.getComboBoxEstado().toString() == "Completada") {
+                } else if (vistaCrear.getComboBoxEstado().toString().equals("Completada")) {
                     System.out.println("la Completada");
                     idEstats = 3;
                 }else {
@@ -124,13 +128,13 @@ public class ControladorCrear extends JFrame{
                 }
 
                 int frecuencia = 0;
-                if (vistaCrear.getComboBoxFrecuencia().toString() == "Única"){
+                if (vistaCrear.getComboBoxFrecuencia().toString().equals( "Única")){
                     System.out.println("la Frecuencia es Única");
                     frecuencia = 0;
-                } else if (vistaCrear.getComboBoxFrecuencia().toString() == "Diaria") {
+                } else if (vistaCrear.getComboBoxFrecuencia().toString().equals("Diaria")) {
                     System.out.println("la Frecuencia es Diaria");
                     frecuencia = 1;
-                }else if (vistaCrear.getComboBoxFrecuencia().toString() == "Semanal"){
+                }else if (vistaCrear.getComboBoxFrecuencia().toString().equals("Semanal") ){
                     System.out.println("la Frecuencia es Semanal");
                     frecuencia = 7;
                 }else {
@@ -163,6 +167,12 @@ public class ControladorCrear extends JFrame{
 
                     ps.executeUpdate();
                     ps.close();
+
+
+                    vistaCrear.getFrame().dispose();
+                    vistaAdministradorDeTareas.rellenarEspacioSql();
+                    vistaAdministradorDeTareas.setVisible(true);
+
 
                 } catch (SQLException e1) {
                     e1.printStackTrace();
