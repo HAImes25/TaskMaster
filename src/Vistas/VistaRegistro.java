@@ -15,9 +15,10 @@ public class VistaRegistro extends JFrame{
     private JLabel labelConfirmarConstraseña;
     private JLabel labelEmail;
     private JLabel IMG;
+    private JLabel labelError;
 
     public VistaRegistro(){
-        setTitle("Administrador de Tareas");
+        setTitle("Resgistro");
         //setSize(420, 570); // inicial
         setSize(375, 667); // iPhone 8
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -40,6 +41,39 @@ public class VistaRegistro extends JFrame{
 
     public String getJTextEmail(){
         return textFieldEmail.getText().trim();
+    }
+
+    public void limpiarVista(){
+        textFieldNombre.setText("");
+        textFieldContraseña.setText("");
+        textFieldConfirmarContraseña.setText("");
+        textFieldEmail.setText("");
+        labelError.setText("");
+    }
+
+    public void mesajeError(String mensaje){
+        labelError.setText(mensaje);
+    }
+
+    public boolean confirmarContraseña(String contraseña, String contraseñaConfi){
+        if (contraseña.equals(contraseñaConfi)) {
+            return true;
+        }else {
+            return false;
+        }
+
+    }
+
+
+    public boolean comprobarCampos(String contraseña, String contraseñaConfi){
+        if (!confirmarContraseña(contraseña, contraseñaConfi)){
+            mesajeError("Las contraseñas no son iguales");
+        }else if (getJTextNombre().isEmpty() | getJTextEmail().isEmpty()){
+            mesajeError("Faltan Campos");
+        }else{
+            return true;
+        }
+        return false;
     }
 
 

@@ -1,9 +1,14 @@
 package Controladores;
 
+import ConexionesBD.ConexionBD;
 import Vistas.VistaRegistro;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class ControladorRegistro {
 
@@ -20,6 +25,7 @@ public class ControladorRegistro {
         vistaRegistro.addActionBotonAceptar(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                vistaRegistro.mesajeError("");
                 String nombre =  vistaRegistro.getJTextNombre();
                 String contraseña = vistaRegistro.getJTextContraseña();
                 String contraseñaConfi = vistaRegistro.getJTextConfirmarContraseña();
@@ -28,16 +34,72 @@ public class ControladorRegistro {
                 String sqlRegistro = "INSERT INTO `usuaris` " +
                         "(`id`, " +
                         "`nickname`, " +
-                        "`password`, `email`, " +
+                        "`password`, " +
+                        "`email`, " +
                         "`exp`, " +
                         "`nivells_id`) " +
                         "VALUES (NULL, ?, ?, ?, ?, ?);";
 
+                String sqlComprobarUsuario = "SELECT * FROM `usuaris` WHERE nickname = ? ";
+
+                StringBuilder resultado = new StringBuilder();
+
+                for (int i = 0; i < contraseña.length(); i++) {
+                    char c = contraseña.charAt(i);
+                    int ascii = (int) c;
+                    resultado.append(ascii);
+
+                    if (i < contraseña.length() - 1) {
+                        resultado.append("-");
+                    }
+                }
+
+                if (vistaRegistro.comprobarCampos(contraseña, contraseñaConfi)) {
+
+                    try (Connection conn = ConexionBD.conectar();
+                         PreparedStatement stm = conn.prepareStatement(sqlComprobarUsuario)) {
+                        stm.setString(1, nombre); // Modificar sql
+                        ResultSet rs = stm.executeQuery();// Ejecutamos la Consulta
+
+                        if (rs.next()){
+                            vistaRegistro.mesajeError("El usuario ya existe");
+                        }else {
+
+                            try (Connection conne = ConexionBD.conectar();
+                                 PreparedStatement stmC = conn.prepareStatement(sqlRegistro)) {
+                                // Hacer otro try para obtener el id de la tasca para poder hacer el update de momento pongo directamente un id
+
+
+                                stmC.setString(1, nombre); // Modificar sql
+                                stmC.setString(2, resultado.toString()); // Modificar sql
+                                stmC.setString(3, email); // Modificar sql
+                                stmC.setInt(4, 0); // Modificar sql
+                                stmC.setInt(5, 1); // Modificar sql
+
+
+                                stmC.executeUpdate();                // Ejecutamos la Consulta
+
+                                vistaRegistro.limpiarVista();
+                                vistaRegistro.mesajeError("Usuario creado");
 
 
 
+                            } catch (SQLException l) {
 
+                                l.printStackTrace();
+                                throw new RuntimeException("Error al registrar usuario");
 
+                            }
+
+                        }
+
+                    } catch (SQLException l) {
+                        l.printStackTrace();
+                        throw new RuntimeException("Usuario ya existe ");
+
+                    }
+
+                }
             }
         });
 
