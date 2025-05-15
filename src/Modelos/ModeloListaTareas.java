@@ -10,11 +10,9 @@ public class ModeloListaTareas {
     private String path = "";
 
     // Constructor
-    public ModeloListaTareas(ArrayList<ModeloTareaHector> listaTareas, String nombre, String path, ArrayList<ModeloListaTareas> listaImagenes){
+    public ModeloListaTareas(ArrayList<ModeloTareaHector> listaTareas){
         this.listaTareas = listaTareas;
-        this.nombre = nombre;
-        this.path = path;
-        agregarImgLista(listaImagenes);
+
     }
 
     // Metodos

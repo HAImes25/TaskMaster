@@ -25,6 +25,7 @@ public class VistaAdministradorDeTareas extends JFrame{
     private JScrollPane panelEnProceso;
     private JScrollPane panelCompletada;
     private JScrollPane panelVencida;
+    private JScrollPane panelPrincipal;
     private JButton botonesButton;
     private JButton sinButton;
     private JButton funcionButton;
@@ -347,5 +348,10 @@ public class VistaAdministradorDeTareas extends JFrame{
 
     public ArrayList<ModeloTareaHector> getListaTareasVencida() {
         return listaTareasVencida;
+    }
+
+    public void agregarImagenVista(JScrollPane panelagregar){
+        panelPrincipal.add(panelagregar);
+
     }
 }
