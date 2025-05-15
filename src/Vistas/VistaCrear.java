@@ -1,7 +1,10 @@
 package Vistas;
 
+import com.toedter.calendar.JCalendar;
+
 import javax.swing.*;
 import java.awt.event.ActionListener;
+import java.util.Calendar;
 
 public class VistaCrear extends JFrame {
     private JButton cancelarButton;
@@ -12,15 +15,21 @@ public class VistaCrear extends JFrame {
     private JComboBox comboBoxDificultad;
     private JComboBox comboBoxEstado;
     private JComboBox comboBoxFrecuencia;
+    private JPanel JPanelCalendar;
     private javax.swing.JFrame frame;
+    private com.toedter.calendar.JCalendar calendarComponent;
+
 
     public VistaCrear(){
+
         frame = new javax.swing.JFrame("Crear Tarea");
         frame.setDefaultCloseOperation(javax.swing.JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().add(panelCrear);
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
+
+
 
 
 
@@ -77,6 +86,22 @@ public class VistaCrear extends JFrame {
 
     public void addCrearListener(ActionListener listener){
          crearTareaButton.addActionListener(listener);
+    }
+
+
+    private void createUIComponents() {
+        calendarComponent = new JCalendar();
+        JPanelCalendar = new JPanel();
+        JPanelCalendar.add(calendarComponent);
+    }
+
+    public java.util.Date getFechaSeleccionada() {
+        return calendarComponent.getDate();
+    }
+
+    public String getFechaSeleccionadaComoString() {
+        java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd");
+        return sdf.format(calendarComponent.getDate());
     }
 
 

@@ -4,6 +4,7 @@ import Vistas.*;
 import Modelos.*;
 import Controladores.*;
 import ConexionesBD.*;
+import com.toedter.calendar.JCalendar;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -44,6 +45,9 @@ public class ControladorCrear extends JFrame{
 
                 vistaAdministradorDeTareas.setVisible(false);
                 modeloTarea = new ModeloTareaHector("", "", "", "");
+
+                String fechaSeleccionada = vistaCrear.getFechaSeleccionadaComoString();
+                System.out.println("Fecha: " + fechaSeleccionada);
 
 
                 modeloTarea.setTitulo(vistaCrear.getTitul());
@@ -109,7 +113,7 @@ public class ControladorCrear extends JFrame{
                 }
 
                 String fechaInici = modeloTarea.getFechaInici();
-                String fechaFinal = modeloTarea.getFechaFinal();
+                String fechaFinal = vistaCrear.getFechaSeleccionadaComoString();
 
 
                 int idEstats = 0;
@@ -141,6 +145,8 @@ public class ControladorCrear extends JFrame{
                     System.out.println("la Frecuencia es Mensual");
                     frecuencia = 30;
                 }
+
+
 
                 String sqlInsert = "INSERT INTO `tasques` " +
                         "(`titol`," +
