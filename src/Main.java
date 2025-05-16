@@ -33,8 +33,8 @@ public class Main {
 
         ControladorAdministradorDeTareas controladorAdministradorDeTareas = new ControladorAdministradorDeTareas(vistaAdministradorDeTareas, listaTareas);
 
-        //VistaRegistro vistaRegistro = new VistaRegistro();
-       // ControladorRegistro controladorRegistro = new ControladorRegistro(vistaRegistro);
+        VistaRegistro vistaRegistro = new VistaRegistro();
+        ControladorRegistro controladorRegistro = new ControladorRegistro(vistaRegistro);
 
 
 

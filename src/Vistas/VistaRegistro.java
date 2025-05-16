@@ -20,7 +20,7 @@ public class VistaRegistro extends JFrame{
     public VistaRegistro(){
         setTitle("Resgistro");
         //setSize(420, 570); // inicial
-        setSize(375, 667); // iPhone 8
+        setSize(400, 667); // iPhone 8
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setContentPane(panelRegistro);
@@ -67,7 +67,7 @@ public class VistaRegistro extends JFrame{
 
     public boolean comprobarCampos(String contraseña, String contraseñaConfi){
         if (!confirmarContraseña(contraseña, contraseñaConfi)){
-            mesajeError("Las contraseñas no son iguales");
+            mesajeError("Las contraseñas\n no son iguales");
         }else if (getJTextNombre().isEmpty() | getJTextEmail().isEmpty()){
             mesajeError("Faltan Campos");
         }else{
@@ -79,6 +79,10 @@ public class VistaRegistro extends JFrame{
 
     public void addActionBotonAceptar(ActionListener listener){
         confirmarButton.addActionListener(listener);
+    }
+
+    public void addActionBotonInicioSesion(ActionListener listener){
+        inicoDeSesionButton.addActionListener(listener);
     }
 
 

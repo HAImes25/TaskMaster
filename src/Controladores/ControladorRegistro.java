@@ -1,6 +1,7 @@
 package Controladores;
 
 import ConexionesBD.ConexionBD;
+import Vistas.VistaInicioSesion;
 import Vistas.VistaRegistro;
 
 import java.awt.event.ActionEvent;
@@ -37,8 +38,9 @@ public class ControladorRegistro {
                         "`password`, " +
                         "`email`, " +
                         "`exp`, " +
-                        "`nivells_id`) " +
-                        "VALUES (NULL, ?, ?, ?, ?, ?);";
+                        "`nivells_id`," +
+                        "`rol`) " +
+                        "VALUES (NULL, ?, ?, ?, ?, ?, ?);";
 
                 String sqlComprobarUsuario = "SELECT * FROM `usuaris` WHERE nickname = ? ";
 
@@ -75,6 +77,7 @@ public class ControladorRegistro {
                                 stmC.setString(3, email); // Modificar sql
                                 stmC.setInt(4, 0); // Modificar sql
                                 stmC.setInt(5, 1); // Modificar sql
+                                stmC.setString(6, "user"); // Modificar sql
 
 
                                 stmC.executeUpdate();                // Ejecutamos la Consulta
@@ -100,6 +103,19 @@ public class ControladorRegistro {
                     }
 
                 }
+            }
+        });
+
+        vistaRegistro.addActionBotonInicioSesion(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                VistaInicioSesion vistaInicioSesion = new VistaInicioSesion();
+                vistaInicioSesion.setVisible(true);
+
+
+
+
             }
         });
 
