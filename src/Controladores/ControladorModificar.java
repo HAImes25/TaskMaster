@@ -56,6 +56,8 @@ public class ControladorModificar extends JFrame {
             public void actionPerformed(ActionEvent e) {
 
 
+
+
                 modelo.setTitulo(vista.getTitul());    // Titulo
                 modelo.setDificultad(vista.getComboBoxDificultad());   // Dificultad
                 //Calendario tadavia no lo ponemos
@@ -63,6 +65,8 @@ public class ControladorModificar extends JFrame {
                 modelo.setFrecuencia(vista.getComboBoxFrecuencia());  //Frecuencia
                 //Hora revisoon  tadavia no lo ponemos
                 modelo.setDescripcion(vista.getDescripcion());
+
+
 
 
                 vistaAdministradorDeTareas.getListaTareasPorEmpezar().clear();

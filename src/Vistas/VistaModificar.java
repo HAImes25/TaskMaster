@@ -1,8 +1,10 @@
 package Vistas;
 
 import Modelos.ModeloTareaHector;
-import Modelos.TareaAina;
+import com.toedter.calendar.JCalendar;
+
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionListener;
 
 
@@ -14,10 +16,12 @@ public class VistaModificar extends JFrame {
     private JTextField textFieldDescripcion;
     private JButton aplicarButton;
     private JButton cancelarButton;
-    private JPanel JPanelCalendario;
+    private JPanel JPanelCalendar;
     private JPanel JPanelHora;
     private JPanel PanelModificar;
+    private JTextField textFieldFechaAnterior;
     private javax.swing.JFrame frame;
+    private com.toedter.calendar.JCalendar calendarComp;
 
 
 
@@ -31,11 +35,23 @@ public class VistaModificar extends JFrame {
         frame.setVisible(true);
 
 
+
+
+
+        calendarComp = new JCalendar();
+        calendarComp.setPreferredSize(new Dimension(200, 150));
+        JPanelCalendar.setLayout(new BorderLayout());
+        JPanelCalendar.add(calendarComp, BorderLayout.CENTER);
+        JPanelCalendar.revalidate();
+        JPanelCalendar.repaint();
+
        // TareaAina ta1 = new TareaAina("Ejercicios MVC", "hsh", "ajsj", "jasj", "Hacer los ejercicos MVC.");
 
 
         //Per a que quan s'obri la finestra ja posi la informació a la part que toca
         textTitulo.setText(tarea.getTitulo());
+
+        textFieldFechaAnterior.setText(tarea.getFechaFinal());
 
 
         String[] oDificultad = { "Facil", "Media", "Dificil"};
@@ -69,6 +85,10 @@ public class VistaModificar extends JFrame {
         textFieldDescripcion.setText(tarea.getDescripcion());
 
 
+
+
+        JPanelCalendar.revalidate();
+        JPanelCalendar.repaint();
 
 
     }
@@ -120,6 +140,17 @@ public class VistaModificar extends JFrame {
     public JFrame getFrame() {
         return frame;
     }
-}
+
+    public java.util.Date getFechaSeleccionada() {
+        return calendarComp.getDate();
+    }
+
+    public String getFechaSeleccionadaComoString() {
+        java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd");
+        return sdf.format(calendarComp.getDate());
+    }
+
+    }
+
 
 

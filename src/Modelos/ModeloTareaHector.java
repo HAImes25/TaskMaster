@@ -1,5 +1,7 @@
 package Modelos;
 
+import Vistas.*;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -110,6 +112,8 @@ public class ModeloTareaHector {
      public int getId(){
         return id;
     }
+
+
 
 
 
