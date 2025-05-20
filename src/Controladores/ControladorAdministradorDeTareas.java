@@ -20,7 +20,6 @@ public class ControladorAdministradorDeTareas {
     public ControladorAdministradorDeTareas(VistaAdministradorDeTareas vistaAdministradorDeTareas,  ArrayList<ModeloTareaHector> listTareas) {
         this.vistaAdministradorDeTareas = vistaAdministradorDeTareas;
         this.listaTareas = listaTareas;
-        //this.vistaCrear = vistaCrear;
 
         vistaAdministradorDeTareas.buttonCrearTareaAddActionListener(new ActionListener() {
             @Override
@@ -34,23 +33,8 @@ public class ControladorAdministradorDeTareas {
             }
         });
 
-//        for (ModeloListaTareas imgModelo : listaImagenes){
-//            JScrollPane Pane = new JScrollPane();
-//            Pane.setLayout(new BoxLayout(Pane, BoxLayout.Y_AXIS));
-//            Pane.setBorder(BorderFactory.createEmptyBorder(25,25,25,25));
-//
-//            JLabel labelFoto = new JLabel(new ImageIcon("src/IMG/" +imgModelo.getPath()));
-//            Pane.add(labelFoto);
-//
-//            vistaAdministradorDeTareas.agregarImagenVista(Pane);
-//        }
-
-    // Rellenar espacios de tareas
-//        vistaAdministradorDeTareas.rellenarEspacioPorEmpezar();
-//        vistaAdministradorDeTareas.rellenarEspacioEnProceso();
-//        vistaAdministradorDeTareas.rellenarEspacioCompletada();
-//        vistaAdministradorDeTareas.rellenarEspacioPorVencida();
         vistaAdministradorDeTareas.rellenarEspacioSql();
+        System.out.println("rellenaddooooo");
 
 
 

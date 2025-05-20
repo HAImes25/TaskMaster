@@ -1,6 +1,7 @@
 package Controladores;
 
 import ConexionesBD.ConexionBD;
+import Modelos.ModeloTareaHector;
 import Vistas.VistaInicioSesion;
 import Vistas.VistaRegistro;
 
@@ -10,12 +11,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class ControladorRegistro {
 
     private VistaRegistro vistaRegistro;
 
-    public ControladorRegistro(VistaRegistro vistaRegistro) {
+    public ControladorRegistro(VistaRegistro vistaRegistro, ArrayList<ModeloTareaHector> listTareas) {
         this.vistaRegistro = vistaRegistro;
 
 
@@ -112,9 +114,8 @@ public class ControladorRegistro {
 
                 VistaInicioSesion vistaInicioSesion = new VistaInicioSesion();
                 vistaInicioSesion.setVisible(true);
-
-
-
+                ControladorInicioSesion controladorInicioSesion = new ControladorInicioSesion(vistaInicioSesion, listTareas);
+                vistaRegistro.dispose();
 
             }
         });

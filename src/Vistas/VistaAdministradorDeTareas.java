@@ -55,6 +55,19 @@ public class VistaAdministradorDeTareas extends JFrame{
 
     }
 
+    public VistaAdministradorDeTareas(){
+
+        //Crear Ventana
+        setTitle("Administrador de Tareas");
+        //setSize(420, 570); // inicial
+        setSize(375, 667); // iPhone 8
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+        setContentPane(panelAdministradorDeTareas);
+
+
+    }
+
     // Metodos
     public void rellenarEspacioPorEmpezar() {
 

@@ -26,15 +26,19 @@ public class Main {
         ArrayList<ModeloTareaHector> listaTareasCompletadas = new ArrayList<ModeloTareaHector>();
         ArrayList<ModeloTareaHector> listaTareasVencidas = new ArrayList<ModeloTareaHector>();
 
-        VistaAdministradorDeTareas vistaAdministradorDeTareas = new VistaAdministradorDeTareas(listaTareas, listaTareasPorEmpezar, listaTareasEnProceso, listaTareasCompletadas, listaTareasVencidas);
-        vistaAdministradorDeTareas.setVisible(true);
+        VistaInicioSesion vistaInicioSesion = new VistaInicioSesion();
+        ControladorInicioSesion controladorInicioSesion = new ControladorInicioSesion(vistaInicioSesion, listaTareas);
+        vistaInicioSesion.setVisible(true);
+
+//        VistaAdministradorDeTareas vistaAdministradorDeTareas = new VistaAdministradorDeTareas(listaTareas, listaTareasPorEmpezar, listaTareasEnProceso, listaTareasCompletadas, listaTareasVencidas);
+//        vistaAdministradorDeTareas.setVisible(true);
 
 
 
-        ControladorAdministradorDeTareas controladorAdministradorDeTareas = new ControladorAdministradorDeTareas(vistaAdministradorDeTareas, listaTareas);
+//        ControladorAdministradorDeTareas controladorAdministradorDeTareas = new ControladorAdministradorDeTareas(vistaAdministradorDeTareas, listaTareas);
 
-        VistaRegistro vistaRegistro = new VistaRegistro();
-        ControladorRegistro controladorRegistro = new ControladorRegistro(vistaRegistro);
+//        VistaRegistro vistaRegistro = new VistaRegistro();
+//        ControladorRegistro controladorRegistro = new ControladorRegistro(vistaRegistro);
 
 
 

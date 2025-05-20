@@ -34,12 +34,23 @@ public class VistaInicioSesion extends JFrame{
         textFieldContraseña.setText("");
     }
 
+    public void mensajeError(String mensaje){
+        labelError.setText(mensaje);
+    }
+
     public void addActionBotonAceptar(ActionListener listener){
         aceptarButton.addActionListener(listener);
     }
 
     public void addActionBotonRegistro(ActionListener listener){
         registroButton.addActionListener(listener);
+    }
+
+    public Boolean comprobarCampos(){
+        if (!getNombreText().isEmpty() || !getContraseñaText().isEmpty()){
+            return true;
+        }
+        return false;
     }
 
 
