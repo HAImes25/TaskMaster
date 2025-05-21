@@ -1,4 +1,4 @@
-package Vistas;
+package Vistas.VistaInicioSesion;
 
 import javax.swing.*;
 import java.awt.event.ActionListener;

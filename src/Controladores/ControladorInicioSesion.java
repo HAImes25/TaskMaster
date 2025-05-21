@@ -3,10 +3,9 @@ package Controladores;
 import ConexionesBD.ConexionBD;
 import Modelos.ModeloTareaHector;
 import Vistas.VistaAdministradorDeTareas;
-import Vistas.VistaInicioSesion;
+import Vistas.VistaInicioSesion.VistaInicioSesion;
 import Vistas.VistaRegistro;
 
-import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;

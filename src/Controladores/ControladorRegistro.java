@@ -2,7 +2,7 @@ package Controladores;
 
 import ConexionesBD.ConexionBD;
 import Modelos.ModeloTareaHector;
-import Vistas.VistaInicioSesion;
+import Vistas.VistaInicioSesion.VistaInicioSesion;
 import Vistas.VistaRegistro;
 
 import java.awt.event.ActionEvent;
