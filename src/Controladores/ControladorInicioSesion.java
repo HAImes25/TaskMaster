@@ -76,10 +76,11 @@ public class ControladorInicioSesion {
 
                                 if (rsc.next()){
 
-                                    VistaAdministradorDeTareas vistaAdministradorDeTareas = new VistaAdministradorDeTareas();
+                                    VistaAdministradorDeTareas vistaAdministradorDeTareas = new VistaAdministradorDeTareas(rsc.getInt("id"));
                                     vistaAdministradorDeTareas.setVisible(true);
                                     ControladorAdministradorDeTareas controladorAdministradorDeTareas = new ControladorAdministradorDeTareas(vistaAdministradorDeTareas, listTareas);
 
+                                    vistaInicioSesion.dispose();
 
                                 }else {
                                     vistaInicioSesion.mensajeError("Contraseña incorrecta");

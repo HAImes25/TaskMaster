@@ -10,6 +10,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -19,13 +20,16 @@ public class ControladorCrear extends JFrame{
     private VistaCrear vistaCrear;
     private ModeloTareaHector modeloTarea;
     private VistaAdministradorDeTareas vistaAdministradorDeTareas;
+    private int idUsuari = 0;
 
 
-    public ControladorCrear(ArrayList<ModeloTareaHector> listaTareas, VistaCrear vistaCrear, VistaAdministradorDeTareas vistaAdministradorDeTareas){
+    public ControladorCrear(ArrayList<ModeloTareaHector> listaTareas, VistaCrear vistaCrear, VistaAdministradorDeTareas vistaAdministradorDeTareas, int idUsuari){
         this.listaTareas = listaTareas;
         this.vistaCrear = vistaCrear;
 
         this.vistaAdministradorDeTareas = vistaAdministradorDeTareas;
+
+        this.idUsuari = idUsuari;
 
 
 
@@ -83,10 +87,11 @@ public class ControladorCrear extends JFrame{
 
 
                 VistaAdministradorDeTareas vistaAdministradorDeTareas1 = new VistaAdministradorDeTareas(listaTareas,vistaAdministradorDeTareas.getListaTareasPorEmpezar(), vistaAdministradorDeTareas.getListaTareasEnProceso(), vistaAdministradorDeTareas.getListaTareasCompletada(), vistaAdministradorDeTareas.getListaTareasVencida());
-                vistaAdministradorDeTareas1.rellenarEspacioPorEmpezar();
-                vistaAdministradorDeTareas1.rellenarEspacioEnProceso();
-                vistaAdministradorDeTareas1.rellenarEspacioCompletada();
-                vistaAdministradorDeTareas1.rellenarEspacioPorVencida();
+//                vistaAdministradorDeTareas1.rellenarEspacioPorEmpezar();
+//                vistaAdministradorDeTareas1.rellenarEspacioEnProceso();
+//                vistaAdministradorDeTareas1.rellenarEspacioCompletada();
+//                vistaAdministradorDeTareas1.rellenarEspacioPorVencida();
+                vistaAdministradorDeTareas1.rellenarEspacioSql();
                 vistaAdministradorDeTareas1.setVisible(true);
 
                 vistaAdministradorDeTareas1.setVisible(true);
@@ -159,6 +164,9 @@ public class ControladorCrear extends JFrame{
                         " `quantitat_exp`) " +
                         "VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
 
+                String sqlGetId = "SELECT * FROM `tasques` ORDER BY id DESC LIMIT 1";
+                String sqlInsertSegundaTabla = "INSERT INTO `usuaris_tasques` (`tasques_id`, `usuaris_id`) VALUES (?, ?)";
+
 
                 try {
                     PreparedStatement ps = ConexionBD.conectar().prepareStatement(sqlInsert);
@@ -173,6 +181,34 @@ public class ControladorCrear extends JFrame{
 
                     ps.executeUpdate();
                     ps.close();
+
+
+                    try {
+                        PreparedStatement stm = ConexionBD.conectar().prepareStatement(sqlGetId);
+
+                        ResultSet rs = stm.executeQuery();
+
+                        if (rs.next()){
+                            try {
+                                System.out.println("Esooooo es el iddd de la ultima tasque" + rs.getInt("id"));
+                                PreparedStatement insert2 = ConexionBD.conectar().prepareStatement(sqlInsertSegundaTabla);
+                                insert2.setInt(1, rs.getInt("id"));
+                                insert2.setInt(2,idUsuari);
+                                insert2.execute();
+
+                            }catch (SQLException e3){
+                                e3.printStackTrace();
+                            }
+                        }
+
+
+
+
+                    }catch (SQLException e2){
+                        e2.printStackTrace();
+
+                    }
+
 
 
                     vistaCrear.getFrame().dispose();

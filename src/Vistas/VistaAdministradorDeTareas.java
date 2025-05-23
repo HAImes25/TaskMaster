@@ -36,6 +36,8 @@ public class VistaAdministradorDeTareas extends JFrame{
     private ArrayList<ModeloTareaHector> listaTareasCompletada;
     private ArrayList<ModeloTareaHector> listaTareasVencida;
 
+    int idusuario = 0;
+
     // Constructor
     public VistaAdministradorDeTareas(ArrayList<ModeloTareaHector> listaTareas, ArrayList<ModeloTareaHector> listaTareasPorEmpezar,ArrayList<ModeloTareaHector> listaTareasEnProceso, ArrayList<ModeloTareaHector> listaTareasCompletadas, ArrayList<ModeloTareaHector> listaTareasVencidas){
 
@@ -55,7 +57,7 @@ public class VistaAdministradorDeTareas extends JFrame{
 
     }
 
-    public VistaAdministradorDeTareas(){
+    public VistaAdministradorDeTareas(int id){
 
         //Crear Ventana
         setTitle("Administrador de Tareas");
@@ -64,12 +66,19 @@ public class VistaAdministradorDeTareas extends JFrame{
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setContentPane(panelAdministradorDeTareas);
+        this.idusuario = id;
 
 
     }
 
+    public int getIdusuario(){
+        return idusuario;
+    }
+
     // Metodos
     public void rellenarEspacioPorEmpezar() {
+
+
 
         // Crear un JPanel de contenedor de las tareas
         JPanel contenedorTareas = new JPanel();
@@ -96,7 +105,7 @@ public class VistaAdministradorDeTareas extends JFrame{
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     VistaModificar vistaModificar = new VistaModificar(tarea);
-                    ControladorModificar controladorModificar = new ControladorModificar(vistaModificar,tarea, VistaAdministradorDeTareas.this, listaTareas);
+                    //ControladorModificar controladorModificar = new ControladorModificar(vistaModificar,tarea, VistaAdministradorDeTareas.this, listaTareas);
                     //Eliminar ventana AdminTareas
                 }
             });
@@ -141,7 +150,7 @@ public class VistaAdministradorDeTareas extends JFrame{
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         VistaModificar vistaModificar = new VistaModificar(tarea);
-                        ControladorModificar controladorModificar = new ControladorModificar(vistaModificar, tarea, VistaAdministradorDeTareas.this, listaTareas);
+                        //ControladorModificar controladorModificar = new ControladorModificar(vistaModificar, tarea, VistaAdministradorDeTareas.this, listaTareas);
                         //Eliminar ventana AdminTareas
                     }
                 });
@@ -186,7 +195,7 @@ public class VistaAdministradorDeTareas extends JFrame{
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     VistaModificar vistaModificar = new VistaModificar(tarea);
-                    ControladorModificar controladorModificar = new ControladorModificar(vistaModificar, tarea, VistaAdministradorDeTareas.this, listaTareas);
+                    //ControladorModificar controladorModificar = new ControladorModificar(vistaModificar, tarea, VistaAdministradorDeTareas.this, listaTareas);
                     //Eliminar ventana AdminTareas
                 }
             });
@@ -230,7 +239,7 @@ public class VistaAdministradorDeTareas extends JFrame{
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     VistaModificar vistaModificar = new VistaModificar(tarea);
-                    ControladorModificar controladorModificar = new ControladorModificar(vistaModificar, tarea, VistaAdministradorDeTareas.this, listaTareas);
+                    //ControladorModificar controladorModificar = new ControladorModificar(vistaModificar, tarea, VistaAdministradorDeTareas.this, listaTareas);
                     //Eliminar ventana AdminTareas
 
                 }
@@ -250,12 +259,15 @@ public class VistaAdministradorDeTareas extends JFrame{
 
     public void rellenarEspacioSql() {
 
-        String sqlSelect = "SELECT * FROM `tasques` ";
+        //String sqlSelect = "SELECT * FROM `tasques` ";
+        String sqlSelect = "SELECT * FROM `tasques` JOIN usuaris_tasques ON tasques.id = usuaris_tasques.tasques_id JOIN usuaris ON usuaris.id = usuaris_tasques.usuaris_id WHERE usuaris.id = ?";
+
 
 
         try (Connection conn = ConexionBD.conectar();
              PreparedStatement stm = conn.prepareStatement(sqlSelect)) {
-            // Hacer otro try para obtener el id de la tasca para poder hacer el update de momento pongo directamente un id
+
+            stm.setInt(1, idusuario);
             ResultSet rs = stm.executeQuery();           // Ejecutamos la Consulta
 
             // Crear un JPanel de contenedor de las tareas Por Empezar
@@ -302,7 +314,7 @@ public class VistaAdministradorDeTareas extends JFrame{
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         VistaModificar vistaModificar = new VistaModificar(tarea);
-                        ControladorModificar controladorModificar = new ControladorModificar(vistaModificar, tarea, VistaAdministradorDeTareas.this, listaTareas);
+                        ControladorModificar controladorModificar = new ControladorModificar(vistaModificar, tarea, VistaAdministradorDeTareas.this, listaTareas, idusuario);
                         //Eliminar ventana AdminTareas
 
                     }

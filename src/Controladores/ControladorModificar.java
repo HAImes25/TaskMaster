@@ -20,13 +20,15 @@ public class ControladorModificar extends JFrame {
     private VistaModificar vista;
     private ModeloTareaHector modelo;
     private VistaAdministradorDeTareas vistaAdministradorDeTareas;
+    private int usuariId = 0;
 
 
-    public ControladorModificar(VistaModificar vistaM, ModeloTareaHector modeloTareaHector, VistaAdministradorDeTareas vistaAdministradorDeTareas, ArrayList<ModeloTareaHector> listaTareas) {
+    public ControladorModificar(VistaModificar vistaM, ModeloTareaHector modeloTareaHector, VistaAdministradorDeTareas vistaAdministradorDeTareas, ArrayList<ModeloTareaHector> listaTareas, int usuariId) {
         this.vista = vistaM;
         this.modelo = modeloTareaHector;
         this.vistaAdministradorDeTareas = vistaAdministradorDeTareas;
         this.listaTareas = listaTareas;
+        this.usuariId = usuariId;
 
 
         // Combobox Predeterminado
@@ -170,7 +172,8 @@ public class ControladorModificar extends JFrame {
 
                 }
 
-                VistaAdministradorDeTareas vistaAdministradorDeTareas1 = new VistaAdministradorDeTareas(listaTareas,vistaAdministradorDeTareas.getListaTareasPorEmpezar(), vistaAdministradorDeTareas.getListaTareasEnProceso(), vistaAdministradorDeTareas.getListaTareasCompletada(), vistaAdministradorDeTareas.getListaTareasVencida());
+                //VistaAdministradorDeTareas vistaAdministradorDeTareas1 = new VistaAdministradorDeTareas(listaTareas,vistaAdministradorDeTareas.getListaTareasPorEmpezar(), vistaAdministradorDeTareas.getListaTareasEnProceso(), vistaAdministradorDeTareas.getListaTareasCompletada(), vistaAdministradorDeTareas.getListaTareasVencida());
+                VistaAdministradorDeTareas vistaAdministradorDeTareas1 = new VistaAdministradorDeTareas(usuariId);
 //                vistaAdministradorDeTareas1.rellenarEspacioPorEmpezar();
 //                vistaAdministradorDeTareas1.rellenarEspacioEnProceso();
 //                vistaAdministradorDeTareas1.rellenarEspacioCompletada();
