@@ -4,6 +4,7 @@ import Vistas.*;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 
 public class ModeloTareaHector {
@@ -47,7 +48,7 @@ public class ModeloTareaHector {
             setEstado("Vencida");
         }
         this.frecuencia = frecuencia;
-        this.fechaFinal = LocalDateTime.now();
+        //this.fechaFinal = fechaFinal;
         this.id = id;
     }
 

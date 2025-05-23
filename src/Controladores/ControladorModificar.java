@@ -9,9 +9,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
+import java.util.Date;
 
 
 public class ControladorModificar extends JFrame {
@@ -37,6 +38,32 @@ public class ControladorModificar extends JFrame {
         vista.getComboBoxDificultadCombo().setSelectedItem(modelo.getDificultad());
         vista.getComboBoxFrecuenciaCombo().setSelectedItem(modelo.getFrecuencia());
 
+        System.out.println("ggfhg" + modelo.getFechaFinal());
+        int idTask=modelo.getId();
+
+        String sqlSelect = "SELECT * FROM `tasques` ; ";
+//        String sqlSelect = "SELECT * FROM `tasques` WHERE id = ?";
+//
+        try (Connection conne = ConexionBD.conectar();
+             PreparedStatement stmt = conne.prepareStatement(sqlSelect)){
+            //stmt.setInt(1, modelo.getId());
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) { // Mueve el cursor a la primera fila
+                Date d = rs.getDate("data_limit");
+                System.out.println("la fecha final es " + d);
+            } else {
+                System.out.println("No se encontraron registros en la tabla 'tasques'");
+            }
+
+        }
+        catch (SQLException l) {
+            System.out.println("no va");
+            l.printStackTrace();
+            throw new RuntimeException("Error al actualizar alumno a la base de datos");
+
+        }
+
 
 
         this.vista.addCancelarListener(new ActionListener() {
@@ -56,6 +83,8 @@ public class ControladorModificar extends JFrame {
         this.vista.addAplicarListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
+                System.out.println();
 
 
 
@@ -117,7 +146,7 @@ public class ControladorModificar extends JFrame {
                     idDificultad = 3;
                 }
                 String dataInici = modelo.getFechaInici();
-                String dataLimit = modelo.getFechaInici();
+                String dataLimit = modelo.getFechaFinal();
 
                 // Falta acabar que el esatdo del sql sea el correcto
 

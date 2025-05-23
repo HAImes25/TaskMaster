@@ -48,6 +48,8 @@ public class VistaModificar extends JFrame {
        // TareaAina ta1 = new TareaAina("Ejercicios MVC", "hsh", "ajsj", "jasj", "Hacer los ejercicos MVC.");
 
 
+
+
         //Per a que quan s'obri la finestra ja posi la informació a la part que toca
         textTitulo.setText(tarea.getTitulo());
 
@@ -84,6 +86,7 @@ public class VistaModificar extends JFrame {
         //Per a que quan s'obri la finestra ja posi la informació a la part que toca
         textFieldDescripcion.setText(tarea.getDescripcion());
 
+    textFieldFechaAnterior.setText(tarea.getFechaFinal());
 
 
 
