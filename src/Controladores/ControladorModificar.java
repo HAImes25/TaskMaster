@@ -69,26 +69,26 @@ public class ControladorModificar extends JFrame {
 
 
 
-                vistaAdministradorDeTareas.getListaTareasPorEmpezar().clear();
-                vistaAdministradorDeTareas.getListaTareasEnProceso().clear();
-                vistaAdministradorDeTareas.getListaTareasCompletada().clear();
-                vistaAdministradorDeTareas.getListaTareasVencida().clear();
-
-
-                for (int i = 0; i < listaTareas.size(); i++) {
-                    if (listaTareas.get(i).getEstado() == "Por empezar"){
-                        vistaAdministradorDeTareas.getListaTareasPorEmpezar().add(listaTareas.get(i));
-
-                    } else if (listaTareas.get(i).getEstado() == "En proceso") {
-                        vistaAdministradorDeTareas.getListaTareasEnProceso().add(listaTareas.get(i));
-
-                    }else if (listaTareas.get(i).getEstado() == "Completada"){
-                        vistaAdministradorDeTareas.getListaTareasCompletada().add(listaTareas.get(i));
-
-                    } else if (listaTareas.get(i).getEstado() == "Vencida") {
-                        vistaAdministradorDeTareas.getListaTareasVencida().add(listaTareas.get(i));
-                    }
-                }
+//                vistaAdministradorDeTareas.getListaTareasPorEmpezar().clear();
+//                vistaAdministradorDeTareas.getListaTareasEnProceso().clear();
+//
+//                for (int i = 0; i < listaTareas.size(); i++) {
+//                    if (listaTareas.get(i).getEstado() == "Por empezar"){
+//                        vistaAdministradorDeTareas.getListaTareasPorEmpezar().add(listaTareas.get(i));
+//
+//                    } else if (listaTareas.get(i).getEstado() == "En proceso") {
+//                        vistaAdministradorDeTareas.getListaTareasEnProceso().add(listaTareas.get(i));
+//
+//                    }else if (listaTareas.get(i).getEstado() == "Completada"){
+//                        vistaAdministradorDeTareas.getListaTareasCompletada().add(listaTareas.get(i));
+//
+//                    } else if (listaTareas.get(i).getEstado() == "Vencida") {
+//                        vistaAdministradorDeTareas.getListaTareasVencida().add(listaTareas.get(i));
+//                    }
+//                }
+//                vistaAdministradorDeTareas.getListaTareasCompletada().clear();
+//                vistaAdministradorDeTareas.getListaTareasVencida().clear();
+//
 
 
                 vistaAdministradorDeTareas.dispose();
