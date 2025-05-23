@@ -87,14 +87,8 @@ public class ControladorCrear extends JFrame{
 
 
                 VistaAdministradorDeTareas vistaAdministradorDeTareas1 = new VistaAdministradorDeTareas(listaTareas,vistaAdministradorDeTareas.getListaTareasPorEmpezar(), vistaAdministradorDeTareas.getListaTareasEnProceso(), vistaAdministradorDeTareas.getListaTareasCompletada(), vistaAdministradorDeTareas.getListaTareasVencida());
-//                vistaAdministradorDeTareas1.rellenarEspacioPorEmpezar();
-//                vistaAdministradorDeTareas1.rellenarEspacioEnProceso();
-//                vistaAdministradorDeTareas1.rellenarEspacioCompletada();
-//                vistaAdministradorDeTareas1.rellenarEspacioPorVencida();
                 vistaAdministradorDeTareas1.rellenarEspacioSql();
-                vistaAdministradorDeTareas1.setVisible(true);
 
-                vistaAdministradorDeTareas1.setVisible(true);
                 vistaCrear.getFrame().dispose();
 
 
