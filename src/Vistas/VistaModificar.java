@@ -6,6 +6,7 @@ import com.toedter.calendar.JCalendar;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.util.Date;
 
 
 public class VistaModificar extends JFrame {
@@ -152,8 +153,12 @@ public class VistaModificar extends JFrame {
         java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd");
         return sdf.format(calendarComp.getDate());
     }
-
+    public void setFechaSeleccionada(Date fecha) {
+        calendarComp.setDate(fecha);  // Muy importante
     }
+
+
+}
 
 
 

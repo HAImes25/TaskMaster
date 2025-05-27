@@ -11,6 +11,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -37,6 +39,15 @@ public class ControladorModificar extends JFrame {
         vista.getComboBoxEstadoCombo().setSelectedItem(modelo.getEstado());
         vista.getComboBoxDificultadCombo().setSelectedItem(modelo.getDificultad());
         vista.getComboBoxFrecuenciaCombo().setSelectedItem(modelo.getFrecuencia());
+
+        try {
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SS");
+            Date fechaFinalDate = sdf.parse(modelo.getFechaFinal());
+
+            vista.setFechaSeleccionada(fechaFinalDate);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
 
         System.out.println("ggfhg" + modelo.getFechaFinal());
         int idTask=modelo.getId();
@@ -84,7 +95,14 @@ public class ControladorModificar extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                System.out.println();
+                Date fechaSeleccionada = vista.getFechaSeleccionada();
+                LocalDateTime fechaFinal = fechaSeleccionada.toInstant()
+                        .atZone(java.time.ZoneId.systemDefault())
+                        .toLocalDateTime();
+
+                modelo.setFecha(fechaFinal);
+
+
 
 
 

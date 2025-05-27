@@ -2,9 +2,7 @@ package Controladores;
 
 import Vistas.*;
 import Modelos.*;
-import Controladores.*;
 import ConexionesBD.*;
-import com.toedter.calendar.JCalendar;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -12,7 +10,9 @@ import java.awt.event.ActionListener;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class ControladorCrear extends JFrame{
 
@@ -50,10 +50,14 @@ public class ControladorCrear extends JFrame{
                 vistaAdministradorDeTareas.setVisible(false);
                 modeloTarea = new ModeloTareaHector("", "", "", "");
 
-                String fechaSeleccionada = vistaCrear.getFechaSeleccionadaComoString();
-                System.out.println("Fecha: " + fechaSeleccionada);
 
 
+                Date fechaSeleccionada = vistaCrear.getFechaSeleccionada();
+                LocalDateTime fechaFinal = fechaSeleccionada.toInstant()
+                        .atZone(java.time.ZoneId.systemDefault())
+                        .toLocalDateTime();
+
+                modeloTarea.setFecha(fechaFinal);
                 modeloTarea.setTitulo(vistaCrear.getTitul());
                 System.out.println("Titulo");
                 modeloTarea.setDificultad(vistaCrear.getComboBoxDificultad());
@@ -112,7 +116,7 @@ public class ControladorCrear extends JFrame{
                 }
 
                 String fechaInici = modeloTarea.getFechaInici();
-                String fechaFinal = vistaCrear.getFechaSeleccionadaComoString();
+                String fechaFinall = vistaCrear.getFechaSeleccionadaComoString();
 
 
                 int idEstats = 0;
@@ -167,7 +171,7 @@ public class ControladorCrear extends JFrame{
                     ps.setString(1, modeloTarea.getTitulo());
                     ps.setInt(2, idDificultad);
                     ps.setString(3, fechaInici);
-                    ps.setString(4, fechaFinal);
+                    ps.setString(4, fechaFinall);
                     ps.setString(5, String.valueOf(idEstats));
                     ps.setString(6, String.valueOf(frecuencia));
                     ps.setString(7, modeloTarea.getDescripcion());
